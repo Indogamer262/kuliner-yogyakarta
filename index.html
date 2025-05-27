@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yogyakarta</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star" />
+		
+		<link rel="stylesheet" href="mystyle.css">
+
+		<style>
+			html, body {
+				margin: 0;
+				height: 100%;
+			}
+			* {
+				box-sizing: border-box;
+			}
+
+			.material-symbols-outlined {
+				font-variation-settings:
+				'FILL' 0,
+				'wght' 400,
+				'GRAD' 0,
+				'opsz' 24
+			}
+			.icon-filled {
+				font-variation-settings:
+				'FILL' 1,
+				'wght' 400,
+				'GRAD' 0,
+				'opsz' 24
+			}
+			
+			.lexend-regular {
+				font-family: "Lexend", sans-serif;
+				font-optical-sizing: auto;
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			header {
+				height: 100%;
+				display: flex;
+				flex-direction:column;
+			}
+			.bg {
+				height: 75%;
+				background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("img/Nasi-Goreng-Fried-Rice.jpg");
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				margin-bottom: 0;
+			}
+
+			footer {
+				background-color: black;
+				color: white;
+				padding: 20px;
+			}
+
+			.card {
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+				transition: 0.3s;
+  				width: 40%;
+			}
+
+			.card:hover {
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+			}
+
+			.container {
+				padding: 2px 16px;
+			}
+
+			.topnav {
+				overflow: hidden;
+				display: flex;
+				justify-content: space-between;
+  				/* background-color: #333;*/
+			}
+
+			.topnav a {
+				color: #f2f2f2;
+				text-align: center;
+				padding: 20px;
+				text-decoration: none;
+				font-size: 17px;
+			}
+			.topnav a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+			.topnav a.active {
+				background-color: #04AA6D;
+				color: white;
+			}
+			.topnav > span {
+				color: white;
+				padding: 20px;
+				float: left;
+				font-size: 18px;
+			}
+
+			.main {
+				text-align: center;
+			}
+			.sec-spotlight {
+				background-color: #ffc956;
+				padding: 20px;
+			}
+			.content {
+				width: 80%;
+				margin: auto;
+			}
+			.content > h1 {
+				margin-top: 10px;
+			}
+
+			.sec-flex {
+				display: flex;
+			}
+
+			.rate-card {
+				padding: 30px;
+				box-shadow: 0 0 4px gray;
+				width: 400px;
+				display: inline-block;
+				margin: 18px;
+			}
+</style>
+
+		</style>
+	</head>
+	<body>
+		<!-- The header -->
+		<header>
+			<div class="bg">
+				<nav>
+					<div class="topnav lexend-regular">
+						<span><b>Kuliner Yogyakarta</b></span>
+						<div style="padding: 20px 0 20px 20px;">
+							<a href="#Berita_terkini">News</a>
+							<a href="#Makanan_Yogyakarta">Menu</a>
+							<a href="Gallery.html">Gallery</a>
+						</div>
+					</div>
+				</nav>
+			</div>
+
+			<div class="lexend-regular sec-spotlight">
+				<div class="content">
+					<h1>Yogyakarta</h1>
+					<p>Yogyakarta adalah kota budaya dan pariwisata yang juga dikenal dengan kekayaan kulinernya. Mulai dari Gudeg, bakpia, hingga sate klathak, Yogya punya segalanya!</p>
+				</div>
+			</div>
+		</header>
+
+		<!-- Main content goes here -->
+		<div class="main">
+			<div class="lexend-regular sec-flex">
+				<div class="">
+					<h2>Sample text</h2>
+					<p>Info</p>
+				</div>
+			</div>
+
+			<div class="lexend-regular">
+				<div class="content">
+					<h1>Apa Kata Orang?</h1>
+
+					<div class="rate-card">
+						<div style="display: flex; justify-content: space-between; align-items: center;">
+							<div style="text-align: left;">
+								<h3 style="margin: 0;">Orang 1</h3>
+								<p style="margin: 0; margin-top: 8px; text-align: left;">
+									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+								</p>
+							</div>
+							<img src="img/ayumi.png" width="60px" style="flex-shrink: 0;">
+						</div>
+						<p>"Makanan yogyakarta tuh emang favorit banget, aku suka lah pokoknya"</p>
+					</div>
+
+					<div class="rate-card">
+						<div style="display: flex; justify-content: space-between; align-items: center;">
+							<div style="text-align: left;">
+								<h3 style="margin: 0;">Orang 2</h3>
+								<p style="margin: 0; margin-top: 8px; text-align: left;">
+									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+								</p>
+							</div>
+							<img src="img/grcx.jpg" width="60px" style="flex-shrink: 0;">
+						</div>
+						<p>"Yogyakarta makanannya khas banget, aku suka"</p>
+					</div>
+
+					<div class="rate-card">
+						<div style="display: flex; justify-content: space-between; align-items: center;">
+							<div style="text-align: left;">
+								<h3 style="margin: 0;">Imelda</h3>
+								<p style="margin: 0; margin-top: 8px; text-align: left;">
+									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+								</p>
+							</div>
+							<img src="img/imelda.jpeg" width="60px" style="flex-shrink: 0;">
+						</div>
+						<p>"Puas banget lah pokoknya"</p>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<!-- // Buat si kulinernya // -->
+		<div class="card">
+ 			<img src="" alt="Avatar" style="width:100%">
+  			<div class="container" onclick="window.location.href='https://midnight.christianah.my.id'">
+    			<h4><b>Sate Klathak Pak Bari</b></h4> 
+    			<p>Ada di film: Ada Apa Dengan Cinta 2 (AADC 2)</p> 
+			</div>
+		</div>
+
+		
+		<footer>
+			<div class="lexend-regular">
+				<b>Contact Us</b>
+				<ul>
+					<li>Email: 2472008@maranatha.ac.id</li>
+					<li>Phone: +62 858-6413-7740</li>
+				</ul>
+			</div>
+		</footer>
+	</body>
+</html>
