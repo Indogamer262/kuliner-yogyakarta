@@ -5,7 +5,7 @@ function visitUrl(uri) {
 // Slide show element
 const ss = {};
 ss.slides = document.getElementsByClassName("slideshow");
-ss.numberSlides = slides.length;
+ss.numberSlides = ss.slides.length;
 ss.showing = 0;
 function slideShowAuto(duration) {
     // auto displayer
