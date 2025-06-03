@@ -20,9 +20,9 @@
 			<div class="topnav lexend-regular">
 				<span class="logo" onclick="visitUrl('')"><b>Kuliner Yogyakarta</b></span>
 				<div style="padding: 20px 0 20px 20px;">
-					<a href="news.html">News</a>
-					<a href="#Makanan_Yogyakarta">Menu</a>
-					<a href="Gallery.html">Gallery</a>
+					<a href="news.html">Berita</a>
+					<a href="menu.html">Menu</a>
+					<a href="Gallery.html">Galeri</a>
 				</div>
 			</div>
 
@@ -39,7 +39,7 @@
 		<!-- Main content goes here -->
 		<div class="main">
 			<div class="lexend-regular">
-				<h1>Galeri Yogyakarta</h1>
+				<h1>Galeri</h1>
 				<div class="lexend-regular sec-flex">
 				
 				</div>
@@ -47,7 +47,8 @@
 
 			<div class="lexend-regular">
 				<div class="content">
-					<h1>Kabar Yogyakarta</h1>
+					<h1>Berita</h1>
+					<p>Terkait Kuliner di Yogyakarta</p>
 					<div class="news-card">
 						<img src="img/ramenbabi.webp" width="400px;">
 						<div class="text">
@@ -62,6 +63,13 @@
 				<div class="content">
 					<h1>Kenapa harus Yogyakarta</h1>
 					<p class="quote">Yogyakarta, kota budaya yang tak pernah tidur, adalah surganya para pencinta kuliner! Dari cita rasa tradisional yang otentik hingga kreasi modern yang menggoda, setiap sudut kota ini menyajikan petualangan rasa yang tak terlupakan. Nikmati gurihnya Gudeg legendaris, manisnya Bakpia yang meleleh di lidah, pedasnya Oseng Mercon yang bikin nagih, atau segarnya Kopi Joss dengan bara arang khasnya. Di Yogyakarta, setiap hidangan adalah cerita, setiap gigitan adalah pengalaman. Bersiaplah untuk menjelajahi kekayaan rasa yang akan membuat Anda jatuh cinta!</p>
+				</div>
+
+				<div class="lexend-regular">
+					<h1>Saran & Masukan</h1>
+					<div class="lexend-regular sec-flex">
+					
+					</div>
 				</div>
 
 				<div class="content">
@@ -111,13 +119,14 @@
 		</div>
 
 		<!-- // Buat si kulinernya // -->
+		 <!--
 		<div class="card">
  			<img src="" alt="Avatar" style="width:100%">
   			<div class="container" onclick="window.location.href='https://midnight.christianah.my.id'">
     			<h4><b>Sate Klathak Pak Bari</b></h4> 
     			<p>Ada di film: Ada Apa Dengan Cinta 2 (AADC 2)</p> 
 			</div>
-		</div>
+		</div> -->
 
 		
 		<footer>
@@ -132,7 +141,7 @@
 
 		<script src="cscript.js"></script>
 		<script>
-			let shows = ["img/Nasi-Goreng-Fried-Rice.jpg", "img/grcx.jpg"];
+			let shows = ["img/Nasi-Goreng-Fried-Rice.jpg", "img/angkringan.jpg", "img/sate.jpg"];
 			let nowShow = 0;
 			setInterval(function() {
 				backgroundChange("cover", shows[nowShow]);
@@ -140,7 +149,7 @@
 				if(nowShow >= shows.length) {
 					nowShow = 0;
 				}
-			}, 5000)
+			}, 3500);
 
 			// dynamic nav background
 			window.addEventListener("scroll", runOnScroll);
