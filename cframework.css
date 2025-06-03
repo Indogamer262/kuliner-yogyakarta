@@ -82,10 +82,12 @@ footer {
     padding: 20px;
     text-decoration: none;
     font-size: 17px;
+    transition: background-color 0.2s;
 }
 .topnav a:hover {
     background-color: #ddd;
     color: black;
+    transition: background-color 0.2s;
 }
 .topnav a.active {
     background-color: #04AA6D;
@@ -125,6 +127,7 @@ footer {
     width: 400px;
     display: inline-block;
     margin: 18px;
+    border-radius: 7px;
 }
 
 .logo {
@@ -188,5 +191,8 @@ button {
     .news-card > img {
         width: 100%;
         object-fit: cover;
+    }
+    .rate-card {
+        width: 90%;
     }
 }
