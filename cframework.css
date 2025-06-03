@@ -67,6 +67,7 @@ footer {
 .topnav {
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     position: fixed;
     width: 100%;
@@ -149,6 +150,10 @@ footer {
     padding: 15px;
     text-align: left;
 }
+.news-card > img {
+    width: 50%;
+    object-fit: cover;
+}
 .button-outlined {
     background: none;
     border: 2px solid #ffc956;
@@ -166,4 +171,22 @@ footer {
 
 button {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .topnav {
+        flex-direction: column;
+        
+        text-align: center;
+        /* background-color: #333;*/
+    }
+    .news-card {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 4px gray
+    }
+    .news-card > img {
+        width: 100%;
+        object-fit: cover;
+    }
 }

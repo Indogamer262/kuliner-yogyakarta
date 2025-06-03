@@ -153,6 +153,11 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
+        .main {
+            width: 80%;
+            margin: auto;
+        }
+
 
         /* body {
             display: grid;
@@ -186,114 +191,116 @@
     </style>
     </head>
     <body>
-        <h2 style="text-align:center">Kuliner Terkenal di Yogyakarta</h2>
-        <div class="row">
-            <div class="column">
-                <img src="img/sate.jpg" style="width:100%;" onclick="openModal();currentSlide(1)" class="thumbnail hover-shadow cursor">
-            </div>
-
-            <div class="column">
-                <img src="img/gudeg.jpg" style="width:100%;" onclick="openModal();currentSlide(2)" class="thumbnail hover-shadow cursor">
-            </div>
-
-            <div class="column">
-                <img src="img/angkringan.jpg" style="width:100%;" onclick="openModal();currentSlide(3)" class="thumbnail hover-shadow cursor">
-            </div>
-
-            <div class="column">
-                <img src="img/bakmi.jpg" style="width:100%;" onclick="openModal();currentSlide(4)" class="thumbnail hover-shadow cursor">
-            </div>
-        </div>
-        
-        <br>
-        <br>
-
-        <h2 style="text-align:center">Restoran Terkenal di Yogyakarta</h2>
-        <div class="row">
+        <div class="main">
+            <h2 style="text-align:center">Kuliner Terkenal di Yogyakarta</h2>
+            <div class="row">
                 <div class="column">
-                    <img src="img/HouseRaminten.jpg" style="width:100%;" onclick="openModal();currentSlide(1)" class="thumbnail hover-shadow cursor">
+                    <img src="img/sate.jpg" style="width:100%;" onclick="openModal();currentSlide(1)" class="thumbnail hover-shadow cursor">
                 </div>
 
                 <div class="column">
-                    <img src="img/WestlakeResto.jpg" style="width:100%;" onclick="openModal();currentSlide(2)" class="thumbnail hover-shadow cursor">
+                    <img src="img/gudeg.jpg" style="width:100%;" onclick="openModal();currentSlide(2)" class="thumbnail hover-shadow cursor">
                 </div>
 
                 <div class="column">
-                    <img src="img/SateRatu.jpg" style="width:100%;" onclick="openModal();currentSlide(3)" class="thumbnail hover-shadow cursor">
+                    <img src="img/angkringan.jpg" style="width:100%;" onclick="openModal();currentSlide(3)" class="thumbnail hover-shadow cursor">
                 </div>
 
                 <div class="column">
-                    <img src="img/HeHa.jpg" style="width:100%;" onclick="openModal();currentSlide(4)" class="thumbnail hover-shadow cursor">
+                    <img src="img/bakmi.jpg" style="width:100%;" onclick="openModal();currentSlide(4)" class="thumbnail hover-shadow cursor">
                 </div>
-        </div>
-
-        <div id="myModal" class="modal">
-        <span class="close cursor" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-            <div class="mySlides">
-                <div class="numbertext">1 / 4</div>
-                <img src="img/sate.jpg" style="width:100%;" class="modal-image">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">2 / 4</div>
-                <img src="img/gudeg.jpg" style="width:100%;" class="modal-image">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">3 / 4</div>
-                <img src="img/angkringan.jpg" style="width:100%;" class="modal-image">
             </div>
             
-            <div class="mySlides">
-                <div class="numbertext">4 / 4</div>
-                <img src="img/bakmi.jpg" style="width:100%;" class="modal-image">
+            <br>
+            <br>
+
+            <h2 style="text-align:center">Restoran Terkenal di Yogyakarta</h2>
+            <div class="row">
+                    <div class="column">
+                        <img src="img/HouseRaminten.jpg" style="width:100%;" onclick="openModal();currentSlide(1)" class="thumbnail hover-shadow cursor">
+                    </div>
+
+                    <div class="column">
+                        <img src="img/WestlakeResto.jpg" style="width:100%;" onclick="openModal();currentSlide(2)" class="thumbnail hover-shadow cursor">
+                    </div>
+
+                    <div class="column">
+                        <img src="img/SateRatu.jpg" style="width:100%;" onclick="openModal();currentSlide(3)" class="thumbnail hover-shadow cursor">
+                    </div>
+
+                    <div class="column">
+                        <img src="img/HeHa.jpg" style="width:100%;" onclick="openModal();currentSlide(4)" class="thumbnail hover-shadow cursor">
+                    </div>
             </div>
 
+            <div id="myModal" class="modal">
+                <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 4</div>
+                        <img src="img/sate.jpg" style="width:100%;" class="modal-image">
+                    </div>
 
-            <div class="modal-content">
-            <div class="mySlides">
-                <div class="numbertext">1 / 4</div>
-                <img src="img/HouseRaminten.jpg" style="width:100%;" class="modal-image">
-            </div>
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 4</div>
+                        <img src="img/gudeg.jpg" style="width:100%;" class="modal-image">
+                    </div>
 
-            <div class="mySlides">
-                <div class="numbertext">2 / 4</div>
-                <img src="img/WestlakeResto.jpg" style="width:100%;" class="modal-image">
-            </div>
-
-            <div class="mySlides">
-                <div class="numbertext">3 / 4</div>
-                <img src="img/SateRatu.jpg" style="width:100%;" class="modal-image">
-            </div>
-            
-            <div class="mySlides">
-                <div class="numbertext">4 / 4</div>
-                <img src="img/HeHa.jpg" style="width:100%;" class="modal-image">
-            </div>
-            
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-            <div class="caption-container">
-                <p id="caption"></p>
-            </div>
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 4</div>
+                        <img src="img/angkringan.jpg" style="width:100%;" class="modal-image">
+                    </div>
+                    
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 4</div>
+                        <img src="img/bakmi.jpg" style="width:100%;" class="modal-image">
+                    </div>
 
 
-            <div class="column">
-                <img class="demo cursor" src="img/sate.jpg" style="width:100%;" onclick="currentSlide(1)" alt="Sate Klathak Pak Bari">
-            </div>
+                    <div class="modal-content">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 4</div>
+                        <img src="img/HouseRaminten.jpg" style="width:100%;" class="modal-image">
+                    </div>
 
-            <div class="column">
-                <img class="demo cursor" src="img/gudeg.jpg" style="width:100%;" onclick="currentSlide(2)" alt="Gudeg Pawon">
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 4</div>
+                        <img src="img/WestlakeResto.jpg" style="width:100%;" class="modal-image">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 4</div>
+                        <img src="img/SateRatu.jpg" style="width:100%;" class="modal-image">
+                    </div>
+                    
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 4</div>
+                        <img src="img/HeHa.jpg" style="width:100%;" class="modal-image">
+                    </div>
+                    
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    <div class="caption-container">
+                        <p id="caption"></p>
+                    </div>
+
+
+                    <div class="column">
+                        <img class="demo cursor" src="img/sate.jpg" style="width:100%;" onclick="currentSlide(1)" alt="Sate Klathak Pak Bari">
+                    </div>
+
+                    <div class="column">
+                        <img class="demo cursor" src="img/gudeg.jpg" style="width:100%;" onclick="currentSlide(2)" alt="Gudeg Pawon">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="img/angkringan.jpg" style="width:100%;" onclick="currentSlide(3)" alt="Angkringan Lik Man">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="img/bakmi.jpg" style="width:100%;" onclick="currentSlide(4)" alt="Bakmi Jawa Pak Pele">
+                    </div>
+                </div>
             </div>
-            <div class="column">
-                <img class="demo cursor" src="img/angkringan.jpg" style="width:100%;" onclick="currentSlide(3)" alt="Angkringan Lik Man">
-            </div>
-            <div class="column">
-                <img class="demo cursor" src="img/bakmi.jpg" style="width:100%;" onclick="currentSlide(4)" alt="Bakmi Jawa Pak Pele">
-            </div>
-        </div>
         </div>
 
 
