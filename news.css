@@ -7,14 +7,10 @@ body {
     font-weight: 400;
     font-style: normal;
     margin: 0;
-    font-family: "Lexend", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
     background: #ffffff; 
     color: #333;
     line-height: 1.6;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 32px auto;
     padding: 0 16px;
 }
@@ -50,6 +46,15 @@ body {
     object-fit: cover;
     height: 300px;
     border-bottom: 4px solid #f1c40f;
+}
+.contenthead {
+    padding: 16px 19px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 4px solid #f1c40f;
+    padding-bottom: 16px; 
 }
 .content {
     padding: 16px 19px;
@@ -93,6 +98,16 @@ body {
 }
 .more:hover {
     background-color: white;
+}
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px; 
+}
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
 }
 @media (max-width: 400px) {
     .gambar {
