@@ -1,1 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu Terkenal di Yogyakarta</title>
+  <style>
+    body {
+      font-family: "Lexend", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
 
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #searchBox {
+      display: block;
+      margin: 0 auto 30px;
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .card-display {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .desc {
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .stars {
+      text-align: center;
+      padding-bottom: 10px;
+      color: #f5b301;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+    }
+
+    .modal-content img {
+      width: 500px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .modal-content img {
+        width: 90vw;
+        height: 60vw;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Kuliner Terkenal di Yogyakarta</h2>
+    <input type="text" id="searchBox" placeholder="Cari kuliner/menu yang anda ingin lihat" onkeyup="filterCards()" />
+
+    <p>Kategori Makanan Yogyakarta</p>
+    <div class="card-display" id="gallery">
+        <div class="card">
+            <img src="img/sate.jpg" width="400" height="200" loading="lazy" alt="Sate Klathak Pak Bari" onclick="openModal(this)">
+            <div class="desc">Sate Klathak Pak Bari</div>
+            <div class="stars">⭐⭐⭐⭐☆</div>
+        </div>
+
+        <div class="card">
+            <img src="img/gudeg.jpg" width="400" height="200" loading="lazy" alt="Gudeg Pawon" onclick="openModal(this)">
+            <div class="desc">Gudeg Pawon</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+
+        <div class="card">
+            <img src="img/angkringan.jpg" width="400" height="200" loading="lazy" alt="Angkringan Lik Man" onclick="openModal(this)">
+            <div class="desc">Angkringan Lik Man</div>
+            <div class="stars">⭐⭐⭐⭐☆</div>
+        </div>
+
+        <div class="card">
+            <img src="img/bakmi.jpg" width="400" height="200" loading="lazy" alt="Bakmi Jawa Pak Pele" onclick="openModal(this)">
+            <div class="desc">Bakmi Jawa Pak Pele</div>
+            <div class="stars">⭐⭐⭐☆☆</div>
+        </div>
+
+        <div class="card">
+            <img src="img/bakmi.jpg" width="400" height="200" loading="lazy" alt="Bakmi Jawa Pak Pele" onclick="openModal(this)">
+            <div class="desc">Bakmi Jawa Pak Pele</div>
+            <div class="stars">⭐⭐⭐☆☆</div>
+        </div>
+    </div>
+    
+    <p>Kategori Minuman Yogyakarta</p>
+    <div class="card-display" id="gallery">
+        <div class="card">
+            <img src="img/wedang.jpg" width="400" height="200" loading="lazy" alt="Wedang Uwuh" onclick="openModal(this)">
+            <div class="desc">Wedang Uwuh</div>
+            <div class="stars">⭐⭐⭐⭐☆</div>
+        </div>
+
+        <div class="card">
+            <img src="img/kopi.jpg" width="400" height="200" loading="lazy" alt="Kopi Joss" onclick="openModal(this)">
+            <div class="desc">Kopi Joss</div>
+            <div class="stars">⭐⭐⭐⭐☆</div>
+        </div>
+
+        <div class="card">
+            <img src="img/rujakEskrim.jpg" width="400" height="200" loading="lazy" alt="Rujak es krim" onclick="openModal(this)">
+            <div class="desc">Rujak es krim</div>
+            <div class="stars">⭐⭐⭐⭐☆</div>
+        </div>
+    </div>
+
+    <p>Kategori Oleh-oleh Yogyakarta</p>
+    <div class="card-display" id="gallery">
+        <div class="card">
+            <img src="img/yangko.jpg" width="400" height="200" loading="lazy" alt="Yangko" onclick="openModal(this)">
+            <div class="desc">Yangko</div>
+            <div class="harga_oleh-oleh">Kisaran Rp10.000 - Rp20.000 per pak</div>
+            <div class="stars">⭐⭐⭐⭐☆</div>
+        </div>
+
+        <div class="card">
+            <img src="img/BakpiaPathok.jpg" width="400" height="200" loading="lazy" alt="Yangko" onclick="openModal(this)">
+            <div class="desc">Bakpia Pathok</div>
+            <div class="harga_oleh-oleh">Kisaran Rp35.000 - Rp40.000 per pak</div>
+            <div class="stars">⭐⭐⭐⭐☆</div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+        <img id="modalImage" src="" alt="Preview" />
+        </div>
+    </div>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn">↑</button>
+
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById("modal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        window.onscroll = function () {
+            document.getElementById("scrollTopBtn").style.display =
+            window.scrollY > 300 ? "block" : "none";
+        };
+
+        function filterCards() {
+            const query = document.getElementById("searchBox").value.toLowerCase();
+            const cards = document.querySelectorAll(".card-display .card");
+            cards.forEach((card) => {
+            const title = card.querySelector(".desc").textContent.toLowerCase();
+            card.style.display = title.includes(query) ? "block" : "none";
+            });
+        }
+        </script>
+</body>
+</html>
