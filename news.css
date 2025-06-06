@@ -104,13 +104,71 @@ body {
     grid-template-columns: repeat(2, 1fr); 
     gap: 24px; 
 }
-@media (max-width: 600px) {
+.main-news {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 16px auto;
+        padding: 0 12px;
+    }
     .card-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .card {
+        transform: scale(0.95);
+        transform-origin: center;
+        margin: -10px 0;
+    }
+    .main-news {
+        transform: scale(1);
+        margin: 0;
+    }
+    .card:hover {
+        transform: scale(0.95) translateY(-6px);
+    }
+    .main-news:hover {
+        transform: translateY(-6px);
+    }
+    .gambar {
+        height: 180px;
+    }
+    .main-news .gambar {
+        height: 220px;
+    }
+    .judul {
+        font-size: 18px;
+    }
+    .description {
+        font-size: 14px;
+    }
+    .more {
+        padding: 8px 12px;
+        font-size: 14px;
     }
 }
-@media (max-width: 400px) {
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
     .gambar {
         height: 140px;
+    }
+    .main-news .gambar {
+        height: 180px;
+    }
+    .judul {
+        font-size: 16px;
+    }
+    .description {
+        font-size: 13px;
+    }
+    .more {
+        padding: 6px 10px;
+        font-size: 13px;
     }
 }
