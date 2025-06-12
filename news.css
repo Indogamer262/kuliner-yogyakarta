@@ -6,46 +6,35 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    margin: 0;
-    background: #ffffff; 
+    margin: 16px auto;
+    padding: 0 12px;
+    background: #ffffff;
     color: #333;
     line-height: 1.6;
-    max-width: 1200px;
-    margin: 32px auto;
-    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
 }
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
 }
-.title {
+.title, .card {
     background: white;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(180, 180, 180, 0.2);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(180, 180, 180, 0.2);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 20px rgba(151, 151, 151, 0.5);
 }
 .gambar {
     width: 100%;
     object-fit: cover;
-    height: 300px;
+    height: 180px;
     border-bottom: 4px solid #f1c40f;
+}
+.main-news .gambar {
+    height: 220px;
 }
 .contenthead {
     padding: 16px 19px;
@@ -54,7 +43,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     border-bottom: 4px solid #f1c40f;
-    padding-bottom: 16px; 
+    padding-bottom: 16px;
 }
 .content {
     padding: 16px 19px;
@@ -64,14 +53,14 @@ body {
     justify-content: space-between;
 }
 .judul {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 700;
     margin: 0 0 4px;
     color: black;
     line-height: 1.2;
 }
 .description {
-    font-size: 16px;
+    font-size: 14px;
     color: #555;
     flex-grow: 1;
     margin: 10px 0 6px;
@@ -87,7 +76,7 @@ body {
 .more {
     background-color: #f1c40f;
     color: black;
-    padding: 10px 15px;
+    padding: 8px 12px;
     text-align: center;
     border: 3px solid #f1c40f;
     border-radius: 5px;
@@ -96,32 +85,56 @@ body {
     margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 14px;
 }
 .more:hover {
     background-color: white;
 }
 .card-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 24px; 
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 .main-news {
     grid-column: 1 / -1;
 }
 
-@media (max-width: 768px) {
+/* DESKTOP */
+@media only screen and (min-width: 601px) {
     body {
-        margin: 16px auto;
-        padding: 0 12px;
+        max-width: 2000px;
+        margin: 32px auto;
+        padding: 0 16px;
+        width: 90%;
+    }
+    .grid {
+        gap: 24px;
+    }
+    .gambar {
+        height: 300px;
+    }
+    .main-news .gambar {
+        height: 300px;
+    }
+    .judul {
+        font-size: 25px;
+    }
+    .description {
+        font-size: 16px;
+    }
+    .more {
+        padding: 10px 15px;
+        font-size: 16px;
     }
     .card-container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 24px;
     }
     .card {
         transform: scale(0.95);
         transform-origin: center;
         margin: -10px 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .main-news {
         transform: scale(1);
@@ -129,47 +142,10 @@ body {
     }
     .card:hover {
         transform: scale(0.95) translateY(-6px);
+        box-shadow: 0 12px 20px rgba(151, 151, 151, 0.5);
     }
     .main-news:hover {
         transform: translateY(-6px);
-    }
-    .gambar {
-        height: 180px;
-    }
-    .main-news .gambar {
-        height: 220px;
-    }
-    .judul {
-        font-size: 18px;
-    }
-    .description {
-        font-size: 14px;
-    }
-    .more {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    .gambar {
-        height: 140px;
-    }
-    .main-news .gambar {
-        height: 180px;
-    }
-    .judul {
-        font-size: 16px;
-    }
-    .description {
-        font-size: 13px;
-    }
-    .more {
-        padding: 6px 10px;
-        font-size: 13px;
+        box-shadow: 0 12px 20px rgba(151, 151, 151, 0.5);
     }
 }
