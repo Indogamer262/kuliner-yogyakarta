@@ -1,0 +1,98 @@
+/* Navbar section */
+.topnav {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    background: none;
+    transition: background-color 0.2s;
+    /* background-color: #333;*/
+}
+
+.topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.2s;
+}
+.topnav a:hover {
+    background-color: rgba(57, 57, 57, 0.65);
+    color: white;
+    transition: background-color 0.2s;
+}
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+.topnav > span {
+    color: white;
+    padding: 20px;
+    float: left;
+    font-size: 18px;
+}
+
+.nav-desktop {
+    display: none;
+}
+.nav-hamburger {
+    display: block;
+    color: white;
+    align-items: center;
+    margin-right: 30px;
+    border: 1px solid white;
+    padding: 5px 5px 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav-hamburger:hover {
+    background-color: rgba(57, 57, 57, 0.65);
+    transition: background-color 0.2s;
+}
+
+.nav-hamburger-expand {
+    position: fixed;
+    background-color: black;
+    top: 60px;
+    width: 100%;
+    display: none;
+    transition: height 0.3s;
+}
+
+.nav-hamburger-expand > a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.2s;
+    color: white;
+}
+.nav-hamburger-expand > a:hover {
+    display: block;
+    background-color: rgba(57, 57, 57, 0.65);
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+
+@media only screen and (min-width:600px) {
+    .nav-desktop {
+        display: block;
+    }
+    .nav-hamburger {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .topnav {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        flex-wrap: nowrap;
+        /* background-color: #333;*/
+    }
+}

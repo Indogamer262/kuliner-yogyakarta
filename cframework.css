@@ -64,44 +64,6 @@ footer {
     padding: 2px 16px;
 }
 
-/* Navbar section */
-.topnav {
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: fixed;
-    width: 100%;
-    background-color: none;
-    transition: background-color 0.2s;
-    /* background-color: #333;*/
-}
-
-.topnav a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 20px;
-    text-decoration: none;
-    font-size: 17px;
-    transition: background-color 0.2s;
-}
-.topnav a:hover {
-    background-color: rgba(57, 57, 57, 0.65);
-    color: white;
-    transition: background-color 0.2s;
-}
-.topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-}
-.topnav > span {
-    color: white;
-    padding: 20px;
-    float: left;
-    font-size: 18px;
-}
-/* Navbar end */
-
 .main {
     text-align: center;
 }
@@ -209,12 +171,6 @@ button {
 }
 
 @media only screen and (max-width: 600px) {
-    .topnav {
-        flex-direction: column;
-        
-        text-align: center;
-        /* background-color: #333;*/
-    }
     .news-card {
         display: flex;
         flex-direction: column;
