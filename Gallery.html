@@ -1,206 +1,402 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galeri Restoran Yogyakarta</title>
-  <style>
-    body {
-      font-family: "Lexend", sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Restoran Terkenal di Yogyakarta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Lexend", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-    .container {
-      width: 90%;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    #searchBox {
-      display: block;
-      margin: 0 auto 30px;
-      padding: 10px;
-      width: 60%;
-      max-width: 400px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
+        #searchBox {
+            display: block;
+            margin: 0 auto 30px;
+            padding: 10px;
+            width: 60%;
+            max-width: 400px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
 
-    .card-display {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
+        .card-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            /* --- INI PENAMBAHANNYA --- */
+            margin-bottom: 40px; 
+        }
 
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .card:hover {
-      transform: scale(1.05);
-    }
+        .card:hover {
+            transform: scale(1.05);
+        }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-    .desc {
-      padding: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
+        .card-content {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    .stars {
-      text-align: center;
-      padding-bottom: 10px;
-      color: #f5b301;
-    }
+        .desc {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
+        .stars {
+            color: #f5b301;
+        }
 
-    .modal-content {
-      margin: 5% auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: fit-content;
-    }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            padding-top: 10px;
+        }
 
-    .modal-content img {
-      width: 500px;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-align: center;
+        }
 
-    @media (max-width: 600px) {
-      .modal-content img {
-        width: 90vw;
-        height: 60vw;
-      }
-    }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+        #modalTitle {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
 
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #333;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      z-index: 1000;
-    }
-  </style>
+        #modalDescription {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #scrollTopBtn {
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            background: #333; 
+            color: #fff; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            display: none; 
+            z-index: 1000;
+        }
+
+        .kuning { 
+            background-color: #ffc956; 
+            padding: 12px; 
+            text-align: center; 
+            font-size: larger; 
+        }
+
+    </style>
 </head>
 <body>
-
-  <div class="container">
-    <h2>Restoran Terkenal di Yogyakarta</h2>
-    <input type="text" id="searchBox" placeholder="Cari kuliner/restoran yang anda ingin lihat" onkeyup="filterCards()" />
-    <div class="card-display">
-      <div class="card">
-        <img src="img/HouseRaminten.jpg" width="400" height="200" loading="lazy" alt="House of Raminten" onclick="openModal(this)">
-        <div class="desc">House of Raminten</div>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-      </div>
-      <div class="card">
-        <img src="img/WestlakeResto.jpg" width="400" height="200" loading="lazy" alt="Westlake Resto" onclick="openModal(this)">
-        <div class="desc">Westlake Resto</div>
-        <div class="stars">⭐⭐⭐⭐☆</div>
-      </div>
-      <div class="card">
-        <img src="img/SateRatu.jpg" width="400" height="200" loading="lazy" alt="Sate Ratu" onclick="openModal(this)">
-        <div class="desc">Sate Ratu</div>
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-      </div>
-      <div class="card">
-        <img src="img/HeHa.jpg" width="400" height="200" loading="lazy" alt="HeHa Sky View" onclick="openModal(this)">
-        <div class="desc">HeHa Sky View</div>
-        <div class="stars">⭐⭐⭐☆☆</div>
-      </div>
+    <div class="kuning">
+        <h2>Restoran Terkenal di Yogyakarta</h2>
+        <input type="text" id="searchBox" placeholder="Cari Restorant" onkeyup="filterCards()"/>
+        <h5>Temukan rekomendasi restoran terbaik di mana cita rasa otentik dan suasana istimewa Yogyakarta menyatu dalam sebuah pengalaman kuliner tak terlupakan.</h5>
     </div>
-  </div>
+    
+    <div class="container">
+        <div class="card-display" id="gallery">
+            <div class="card" onclick="openModal(this)">
+                <img src="img/HouseRaminten.jpg" loading="lazy" alt="The House of Raminten">
+                <div class="card-content">
+                    <div class="desc">The House of Raminten</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>The House of Raminten merupakan salah satu rumah makan 24 jam yang berlokasi di Kotabaru, Gondokusuman, Yogyakarta. 
+                        Rumah makan ini menyajikan nuansa Jawa, baik dari alunan musik yang diputar, seragam yang dikenakan para pelayan, nama dan pilihan menu yang disediakan, serta berbagai perabotan dan ornamen yang ada.</p>
+                    <p>Menu favorit di The House of Raminten adalah "Nasi Kucing" yang merupakan nasi kucing versi mewah, disajikan dengan oseng tempe, sambal terasi, dan telur puyuh dalam pincuk daun pisang. 
+                        Selain itu, "Sego Gudeg" juga menjadi favorit dengan tampilan yang menarik.</p>
+                    <p>The House of Raminten di Yogyakarta buka setiap hari, termasuk akhir pekan (weekend) dan hari kerja (weekdays), mulai pukul 09.00 WIB hingga 24.00 WIB</p>
+                </div>
+            </div>
 
-  <!-- Modal -->
-  <div id="modal" class="modal" onclick="closeModal()">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div class="modal-content">
-      <img id="modalImage" src="" alt="Preview" />
+            <div class="card" onclick="openModal(this)">
+                <img src="img/WestlakeResto.jpg" loading="lazy" alt="Westlake Resto">
+                <div class="card-content">
+                    <div class="desc">Westlake Resto</div>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>The Westlake Resto berlokasi di Bedog, Jl. Ringroad Barat, Baturan, Trihanggo, Kec. Gamping, Kabupaten Sleman, DIY. Karena berada di sisi barat Kota Jogja, tempat makan ini menawarkan konsep restoran semi outdoor dengan gazebo.</p>
+                    <p>Gazebonya sendiri dapat memuat kapasitas 300 hingga 500 orang. The Westlake Resto sangat cocok untuk acara arisan, meeting, gathering, wedding, birthday, maupun dinner romantis.</p>
+                    <p>Untuk menu khas The Westlake Resto ada di perkedel westlake, buah segar westlake, dan es teler westlake. Fasilitas yang tersedia ada danau buatan, wahana bebek kayuh, kolam pancing, penyewaan alat pancing, mushola dan toilet, dan area untuk parkir.</p>
+                    <p>Pengunjung dapat berekreasi sekaligus menikmati masakan khas nusantara di tempat ini. The Westlake Resto buka mulai pukul 10.00-22.00 WIB.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/SateRatu.jpg" loading="lazy" alt="Sate Ratu">
+                <div class="card-content">
+                    <div class="desc">Sate Ratu</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                 <div class="full-description" style="display: none;">
+                    <p>Mengutip laman resmi Sate Ratu, Sate Ratu tidak memulai perjalanannya sebagai restoran sate secara langsung. Restoran satu ini bermula dari Angkringan Ratu yang berdiri pada 2015. 
+                        Setahun kemudian, Angkringan Ratu dikembangkan menjadi restoran Sate Ratu.</p>
+                    <p>Nama Sate Ratu berasal dari kata 'Ratu' yang menurut sang pemilik terdengar tradisional dan memiliki filosofi yang serupa dengan Jogja di mana pemerintahannya berbentuk monarki. 
+                        Sejak pertama kali didirikan, Sate Ratu selalu ramai dikunjungi baik oleh wisatawan lokal maupun internasional.</p>
+                    <p>Sate ayam merah merupakan menu andalan Sate Ratu. Dengan potongan daging ayam dari bagian yang sangat spesifik, dipotong besar-besar, 
+                        direndam dengan bumbu khas Sate Ratu dan dibakar tanpa menyentuh besi panggangan.</p>
+                    <p>Saat pertama kali didirikan, Sate Ratu berlokasi di Jalan Magelang, Yogyakarta. 
+                        Restoran ini bertahan di lokasi tersebut selama lima tahun sebelum akhirnya pindah ke Jalan Sidomukti, Tiyasan, Condongcatur pada awal tahun 2021.</p>
+                    <p>Untuk jam bukanya sendiri, Sate Ratu beroperasi setiap hari Senin hingga Sabtu. Sate Ratu buka dari waktu makan siang yakni jam 11.00 WIB hingga jam 22.00 WIB.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/HeHa.jpg" loading="lazy" alt="HeHa Sky View">
+                <div class="card-content">
+                    <div class="desc">Heha Sky View</div>
+                    <div class="stars">⭐⭐⭐☆☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>HeHa Sky View adalah wisata kuliner yang pas dikunjungi apabila ingin menikmati keindahan Kota Jogja dari ketinggian. Di HeHa Sky View, pengunjung akan dimanjakan dengan banyak spot foto yang hits dan kekinian dengan pemandangan alam yang cantik.</p>
+                    <p>Aneka hidangan seperti chicken wing, asinan betawi, pizza, bulgogi, ramen, iga panggang, bakmi godhog, cheese cake, dan aneka jus dan kopi. Salah satu daya tarik dari wisata kuliner ini adalah spot fotonya yang keren.</p>
+                    <p>HeHa Sky View terletak di Jl. Dlingo-Patuk No.2, Patuk, Bukit, Kec. Patuk, Kabupaten Gunung Kidul, DIY. Tempat ini buka setiap hari dari pukul 10.00-21.00 WIB. Pengunjung dapat mengunjungi HeHa Sky View dengan membayar harga tiket masuk sebesar Rp 20.000</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-display">
+            <div class="card" onclick="openModal(this)">
+                <img src="img/kesuma-restaurant,jpg" loading="lazy" alt="Kesuma Restaurant">
+                <div class="card-content">
+                    <div class="desc">Kesuma Restaurant</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Ketika masakan lokal mengalami transformasi, Kesuma Restaurant hadir sebagai wajah baru yang menggoda selera. Terletak di Jalan Malioboro, Yogyakarta, restoran ini berhasil menciptakan pengalaman kuliner yang unik dan tak terlupakan. 
+                        Dengan sentuhan baru pada masakan rumah, Kesuma Restaurant membawa nuansa segar dan cita rasa yang memukau.</p>
+                    <p>Menu andalannya, seperti Soto Ayam dengan kuah gurih dan ayam yang empuk, Gudeg dengan cita rasa manis dan gurih yang khas, serta Nasi Goreng dengan rasa gurih dan nasinya yang pulen, menjadi pilihan utama para pengunjung.</p>
+                    <p>Kesuma Restaurant buka setiap hari jam 18.00 WIB - 22.00 WIB</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/pyama-cafe.jpg" loading="lazy" alt="Piyama Cafe">
+                <div class="card-content">
+                    <div class="desc">Piyama Cafe</div>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Piyama Cafe merupakan salah satu cafe hits di Yogyakarta di antara banyak coffeeshop atau cafe lainnya yang sangat menjamur di kota wisata ini. Berada di Lobby Kotta GO Hotel Yogyakarta yang berlokasi di Jl. Diponegoro No. 87, Bumijo, Jetis, Yogyakarta.</p>
+                    <p>Buka dari pagi hari pukul 06.00 hingga 22.00 WIB, menu yang disajikan sangat beragam dengan menu recommended Honje Roll Ayam Suwir Kecombrang yang dibungkus dengan Tempe dan ada Nasi Goreng Kecombrang yang dibuat dengan resep rahasia dan ditambah dengan Telur Mata Sapi.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/Mediterranea-Restaurant.jpg" loading="lazy" alt="Mediterranea Restaurant by Kamil">
+                <div class="card-content">
+                    <div class="desc">Mediterranea Restaurant by Kamil</div>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Mediterranea Restaurant by Kamil adalah sebuah rumah makan casual fine-dining yang menyajikan berbagai kuliner authentic khas Perancis dan Mediterania.</p>
+                    <p>Rumah makan yang juga dikenal dengan nama Mediterania Jogja ini terletak di daerah Tirtodipuran dan didirikan oleh Chef Camille Massard-Combe yang akrab disapa dengan panggilan Chef Kamil.</p>
+                    <p>Saat berkunjung ke rumah makan ini, ada menu signature yang wajib Anda coba yaitu Duck Confit dan Duck Magret. Duck Confit merupakan hidangan tradisional khas Prancis yang disebut juga sebagai Confit de Canard.</p>
+                    <p>Restoran ini buka setiap hari mulai pukul 08:00 hingga 23:00, dengan pesanan terakhir pukul 22:30.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/The-Tree-Restaurant..jpg" loading="lazy" alt="The Tree Restaurant By Amaranta Prambanan">
+                <div class="card-content">
+                    <div class="desc">The Tree Restaurant By Amaranta Prambanan</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>The Tree Restaurant by Amaranta Prambanan terletak di Bukit Boko Prambanan di Sleman, Yogyakarta dan menawarkan pemandangan Gunung Merapi, Candi Prambanan, dan Lembah Sleman di sekitarnya. 
+                        Menggabungkan tradisi yang kaya dengan gaya modern, konsep kami memberikan perspektif baru pada layanan yang luar biasa dan suasana yang berkesan untuk menikmati pengalaman bersantap yang istimewa.</p>
+                    <p>Menu andalannya adalah Iga Prambanan, Gulai Kepala Salmon, Ayam Masak Anglo, Bebek Sambirejo.</p>
+                    <p>Jam operasional The Tree Restaurant by Amaranta Prambanan adalah pukul 06.30 - 22.30 untuk sarapan, makan siang, dan makan malam</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-display">
+            <div class="card" onclick="openModal(this)">
+                <img src="img/South-Shore.jpg" loading="lazy" alt="South Shore">
+                <div class="card-content">
+                    <div class="desc">South Shore</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>South Shore adalah tempat makan di Jogja yang instagramable. Berada Di tempat ini kamu akan merasa seperti berada di Bali, ala beach club Bali dengan kursi, meja, payung besar, dan nuansa serba putih. Pemandangan pantai, deburan ombak, dan menikmati matahari terbenam juga menjadi suguhan menarik yang ditawarkan South Shore.</p>
+                    <p>Menu makanan seperti spaghetti, fish and chips, mocktail, dan chicken wings adalah menu favorit yang sering dipesan. Dimulai dari harga 35 ribu rupiah kamu bisa mencoba makanan yang enak-enak di sini.</p>
+                    <p>Alamat: Jalan Pantai Selatan Jawa, Pule Gundes II, Sidoharjo, Tepus, Kabupaten Gunung Kidul.</p>
+                    <p>Jam Operasional: Selasa - Minggu Pukul: 12.00 - 19.00 WIB</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/Abhayagiri.jpg" loading="lazy" alt="Abhayagiri - Venue and Dining">
+                <div class="card-content">
+                    <div class="desc">Abhayagiri - Venue and Dining</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Restoran Abhayagiri memberikan pemandangan landscape Candi Prambanan dan Gunung Merapi dari kejauhan. Restoran Abhayagiri menawarkan menu makanan khas Indonesia dan Internasional dengan cita rasa yang lezat.</p>
+                    <p>Mulai dari makanan pembuka, makanan berat, dessert, sampai minuman. Contoh hidangannya yaitu bihun goreng tanjong pagar, udang indrayanti, gurame suket emas, nasi goreng seafood, aneka jus buah, salad, dan masih banyak lagi.</p>
+                    <p>Restoran Abhayagiri terletak di Heritage Restort, RT.02 / RW.01, Sumberwatu, Sambirejo, Kec. Prambanan, Kabupaten Sleman, DIY. Tempat makan ini dibuka setiap hari mulai pukul 11.00 - 21.00 WIB.</p>
+                </div>
+            </div>
+            
+            <div class="card" onclick="openModal(this)">
+                <img src="img/Lalawuh-sunda.jpg" loading="lazy" alt="Lalawuh Sunda">
+                <div class="card-content">
+                    <div class="desc">Lalawuh Sunda</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Dari namanya, restoran ini adalah tempat kuliner yang menawarkan menu khas Sunda. Contoh makanan yang disediakan adalah maranggi, gepuk sapi, pepes, nasi tutug oncom, nasi liwet, misro, combro, karedok, lalapan, bandrek, dan masih banyak lagi.</p>
+                    <p>Harga makanan yang disajikan juga sangat terjangkau, yaitu berkisar dari Rp 5.000 hingga Rp 95.000. Lalawuh Sunda memiliki area luas. Disediakan fasilitas yang lengkap seperti VIP room, ruangan indoor, outdoor, toilet, sampai area parkir.</p>
+                    <p>Karena area yang luas, tempat ini sangat cocok untuk acara keluarga maupun reuni. Tempat makan ini terletak di Jl. Rogoyudan 1 No.1, Rogoyudan, Sinduadi, Kec. Mlati, Kabupaten Sleman, DIY. Lalawuh Sunda beroperasional setiap hari mulai pukul 10.00-22.00 WIB.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/The-Manglung.jpg" loading="lazy" alt="The Manglung View & Resto">
+                <div class="card-content">
+                    <div class="desc">The Manglung View & Resto</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>The Manglung View & Resto adalah sebuah destinasi kuliner yang tak boleh dilewatkan di Yogyakarta. Terletak di Jalan Ngoro Ngoro Ombo No.16, Patuk, Gunung Kidul, Daerah Istimewa Yogyakarta, restoran ini menyuguhkan pengalaman makan yang istimewa dengan latar belakang pemandangan yang menakjubkan.</p>
+                    <p>Tak hanya pemandangan yang mempesona, The Manglung View & Resto juga menggoda selera dengan beragam pilihan menu makanan dan minuman. Mulai dari hidangan khas Indonesia seperti nasi goreng, nasi ayam, hingga mie goreng, hingga minuman segar seperti jus, milkshake, dan kopi, restoran ini memanjakan setiap selera.</p>
+                    <p>The Manglung View & Resto menempati posisi yang istimewa di Jalan Ngoro Ngoro Ombo No.16, Patuk, Gunung Kidul, Daerah Istimewa Yogyakarta. The Manglung View & Resto membuka pintunya setiap hari dari pukul 11.00 hingga 22.00.</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <button onclick="scrollToTop()" id="scrollTopBtn">↑</button>
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Preview" />
+            <h3 id="modalTitle"></h3>
+            <div id="modalDescription"></div>
+        </div>
+    </div>
 
-  <script>
-    function openModal(img) {
-      const modal = document.getElementById("modal");
-      const modalImg = document.getElementById("modalImage");
-      modal.style.display = "block";
-      modalImg.src = img.src;
-    }
+    <button onclick="scrollToTop()" id="scrollTopBtn">↑</button>
 
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
+    <script>
+        function openModal(cardElement) {
+            const modal = document.getElementById("modal");
+            const modalImg = document.getElementById("modalImage");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalDesc = document.getElementById("modalDescription");
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+            const imgSrc = cardElement.querySelector('img').src;
+            const title = cardElement.querySelector('.desc').textContent;
+            
+            const descriptionElement = cardElement.querySelector('.full-description');
+            
+            const descriptionHTML = descriptionElement ? descriptionElement.innerHTML : "";
 
-    window.onscroll = function () {
-      document.getElementById("scrollTopBtn").style.display =
-        window.scrollY > 300 ? "block" : "none";
-    };
+            modalImg.src = imgSrc;
+            modalTitle.textContent = title;
+            modalDesc.innerHTML = descriptionHTML;
+            
+            modal.style.display = "block";
+        }
 
-    function filterCards() {
-      const query = document.getElementById("searchBox").value.toLowerCase();
-      const cards = document.querySelectorAll(".card-display .card");
-      cards.forEach((card) => {
-        const title = card.querySelector(".desc").textContent.toLowerCase();
-        card.style.display = title.includes(query) ? "block" : "none";
-      });
-    }
-  </script>
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
 
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        window.onscroll = function () {
+            document.getElementById("scrollTopBtn").style.display =
+            window.scrollY > 300 ? "block" : "none";
+        };
+
+        function filterCards() {
+            const query = document.getElementById("searchBox").value.toLowerCase();
+            const cards = document.querySelectorAll(".card-display .card");
+            cards.forEach((card) => {
+                const title = card.querySelector(".desc").textContent.toLowerCase();
+                card.style.display = title.includes(query) ? "flex" : "none";
+            });
+        }
+    </script>
 </body>
 </html>
