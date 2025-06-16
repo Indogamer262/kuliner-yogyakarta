@@ -1,271 +1,174 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menu Terkenal di Yogyakarta</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: "Lexend", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    .container {
-      width: 90%;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      
-    }
-
-    #searchBox {
-      display: block;
-      margin: 0 auto 30px;
-      padding: 10px;
-      width: 60%;
-      max-width: 400px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .card-display {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .desc {
-      padding: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .stars {
-      text-align: center;
-      padding-bottom: 10px;
-      color: #f5b301;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    .modal-content {
-      margin: 5% auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: fit-content;
-    }
-
-    .modal-content img {
-      width: 500px;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    @media (max-width: 600px) {
-      .modal-content img {
-        width: 90vw;
-        height: 60vw;
-      }
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #333;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      z-index: 1000;
-    }
-
-    .kuning {
-      background-color: #ffc956;
-      padding: 12px;
-      text-align: center;
-      font-size: larger;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Menu Terkenal di Yogyakarta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
+    <style>
+    </style>
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-  <div class="kuning">
-    <h2>Kuliner Terkenal di Yogyakarta</h2>
-    <input type="text" id="searchBox" placeholder="Cari menu" onkeyup="filterCards()"/>
-    <h5>Temukan warisan cita rasa otentik dan melegenda yang menjadi bagian tak terpisahkan dari keistimewaan budaya Yogyakarta.</h5>
-  </div>
-  
-  <div class="container">
-
-    <p><b>Kategori Makanan Yogyakarta</b></p>
-    <div class="card-display" id="gallery">
-        <div class="card">
-            <p><a href="Menu-Info/sate-klathak.html">
-            <img src="img/sate.jpg" width="400" height="200" loading="lazy" alt="Sate Klathak Pak Bari" onclick="openModal(this)"></a></p>
-            <div class="desc">Sate Klathak Pak Bari</div>
-            <div class="stars">⭐⭐⭐⭐☆</div>
-        </div>
-
-        <div class="card">
-            <p><a href="Menu-Info/gudeg-pawon.html">
-            <img src="img/gudeg.jpg" width="400" height="200" loading="lazy" alt="Gudeg Pawon" onclick="openModal(this)"></a></p>
-            <div class="desc">Gudeg Pawon</div>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="card">
-            <p><a href="Menu-Info/Soto-Bathok-Mbah-Katro.html">
-            <img src="img/soto.jpg" width="400" height="200" loading="lazy" alt="Angkringan Lik Man" onclick="openModal(this)"></a></p>
-            <div class="desc">Soto Bathok Mbah Katro</div>
-            <div class="stars">⭐⭐⭐⭐☆</div>
-        </div>
-
-        <div class="card">
-            <p><a href="Menu-Info/bakmi-jawa.html">
-            <img src="img/bakmi.jpg" width="400" height="200" loading="lazy" alt="Bakmi Jawa Pak Pele" onclick="openModal(this)"></a></p>
-            <div class="desc">Bakmi Jawa Pak Pele</div>
-            <div class="stars">⭐⭐⭐☆☆</div>
-        </div>
+   <!-- navbar section -->
+    <link rel="stylesheet" href="navbar.css">
+                <div class="topnav lexend-regular">
+                    <span class="logo" onclick="visitUrl('')"><b>Kuliner Yogyakarta</b></span>
+                    <div style="padding: 20px 0 20px 20px;" class="nav-desktop">
+                        <a href="news.html">Berita</a>
+                        <a href="menu.html">Menu</a>
+                        <a href="Gallery.html">Galeri</a>
+                    </div>
+                    <div class="nav-hamburger" onclick="showMenu()">
+                        <span class="material-symbols-outlined">menu</span>
+                    </div>
+                </div>
+                <div class="nav-hamburger-expand lexend-regular">
+                    <div class="expand-content">
+                        <a href="news.html" class="expand-child">Berita</a>
+                        <a href="menu.html" class="expand-child">Menu</a>
+                        <a href="Gallery.html" class="expand-child">Galeri</a>
+                    </div>
+                    <div class="expand-trigger" onclick="hideExpand()">
+                    </div>
+                </div>
+                <script src="navbar.js"></script>
+                <!-- Navbar End -->
+                 
+    <div class="kuning">
+        <h2 class="title-gradient">Kuliner Terkenal di Yogyakarta</h2>
+        <input type="text" id="searchBox" placeholder="Cari menu" onkeyup="filterCards()"/>
+        <h5>Temukan warisan cita rasa otentik dan melegenda yang menjadi bagian tak terpisahkan dari keistimewaan budaya Yogyakarta.</h5>
     </div>
     
-    <p><b>Kategori Minuman Yogyakarta</b></p>
-    <div class="card-display" id="gallery">
-        <div class="card">
-            <p><a href="Menu-Info/wedang-uwuh.html">
-            <img src="img/wedang.jpg" width="400" height="200" loading="lazy" alt="Wedang Uwuh" onclick="openModal(this)"></a></p>
-            <div class="desc">Wedang Uwuh</div>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+    <div class="container">
+        <h3><b>Kategori Makanan Yogyakarta</b></h3>
+        <div class="card-display" id="gallery">
+            
+            <div class="card" onclick="openModal(this)">
+                <img src="img/sate.jpg" loading="lazy" alt="Sate Klathak Pak Bari">
+                <div class="card-content">
+                    <div class="desc">Sate Klathak Pak Bari</div>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Sate Klathak adalah sate kambing unik yang dibumbui minimalis dengan garam dan merica. Keunikannya terletak pada tusuk sate yang menggunakan jeruji besi sepeda, yang dipercaya membuat daging matang lebih merata.</p>
+                    <p>Biasanya, sate ini disajikan dengan kuah gulai gurih yang kaya rempah sebagai pengganti saus kacang pada sate umumnya.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/gudeg.jpg" loading="lazy" alt="Gudeg Pawon">
+                <div class="card-content">
+                    <div class="desc">Gudeg Pawon</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Gudeg Pawon Jogja, sebuah warisan kuliner yang telah berdiri sejak tahun 1958, memiliki perjalanan panjang yang mengundang decak kagum.</p>
+                    <p>Awalnya, gudeg ini berjualan di Pasar Sentul Yogyakarta sebelum akhirnya bermigrasi ke tempat kediamannya di Jl. Prof. DR Soepomo, Janturan. Kepopulerannya telah mengubah jalan sempit di perkampungan warga menjadi destinasi kuliner yang selalu ramai pengunjung.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/soto.jpg" loading="lazy" alt="Soto Bathok Mbah Katro">
+                <div class="card-content">
+                    <div class="desc">Soto Bathok Mbah Katro</div>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                </div>
+                 <div class="full-description" style="display: none;">
+                    <p>Soto Bathok Mbah Katro adalah pilihan yang tepat bagi kamu yang ingin menikmati kuliner khas Jogja dengan cita rasa otentik, suasana pedesaan yang nyaman, dan harga yang sangat bersahabat.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/bakmi.jpg" loading="lazy" alt="Bakmi Jawa Pak Pele">
+                <div class="card-content">
+                    <div class="desc">Bakmi Jawa Pak Pele</div>
+                    <div class="stars">⭐⭐⭐☆☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Bakmi Pak Pele menjadi bakmi legendaris yang ada di Jogja. Bakmi jawa satu ini telah berdiri sejak tahun 1983.</p>
+                    <p>Bakmi Pak Pele menjadi salah satu incaran para pecinta kuliner di Jogja baik masyakarat lokal maupun wisatawan yang sengaja berkunjung untuk mencoba kuliner khas Jogja ini.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h3><b>Kategori Minuman Yogyakarta</b></h3>
+        <div class="card-display">
+            <div class="card" onclick="openModal(this)">
+                <img src="img/wedang.jpg" loading="lazy" alt="Wedang Uwuh">
+                <div class="card-content">
+                    <div class="desc">Wedang Uwuh</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Wedang uwuh adalah minuman tradisional khas Yogyakarta yang terbuat dari campuran rempah-rempah seperti jahe, cengkeh, kayu manis, kayu secang, kapulaga, dan gula batu.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/kopi.jpg" loading="lazy" alt="Kopi Joss">
+                <div class="card-content">
+                    <div class="desc">Kopi Joss</div>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Kopi Joss adalah Kopi jos atau kopi joss adalah minuman kopi khas Yogyakarta yang disajikan bersama arang panas. Arang panas dimasukkan ke dalam seduhan kopi hitam dan gula untuk kemudian dihidangkan.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal(this)">
+                <img src="img/rujakEskrim.jpg" loading="lazy" alt="Rujak es krim">
+                <div class="card-content">
+                    <div class="desc">Rujak es krim</div>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Rujak es krim adalah jajanan khas Yogyakarta yang menggabungkan antara rujak buah dengan es krim, menciptakan rasa manis, pedas, asam, dan dingin yang menyegarkan.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="card">
-            <p><a href="Menu-Info/kopi-joss.html">
-            <img src="img/kopi.jpg" width="400" height="200" loading="lazy" alt="Kopi Joss" onclick="openModal(this)"></a></p>
-            <div class="desc">Kopi Joss</div>
-            <div class="stars">⭐⭐⭐⭐☆</div>
-        </div>
-
-        <div class="card">
-            <p><a href="Menu-Info/rujak-es-krim.html">
-            <img src="img/rujakEskrim.jpg" width="400" height="200" loading="lazy" alt="Rujak es krim" onclick="openModal(this)"></a></p>
-            <div class="desc">Rujak es krim</div>
-            <div class="stars">⭐⭐⭐⭐☆</div>
+        <h3><b>Kategori Oleh-oleh Yogyakarta</b></h3>
+        <div class="card-display">
+            <div class="card" onclick="openModal(this)">
+                <img src="img/yangko.jpg" loading="lazy" alt="Yangko">
+                <div class="card-content">
+                    <div class="desc">Yangko</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Yangko adalah makanan khas Yogyakarta yang terbuat dari tepung ketan, memiliki rasa manis dan kenyal, serta seringkali diisi dengan campuran kacang.</p>
+                    <p>Sering disebut mochi-nya Yogyakarta, Yangko terbuat dari tepung ketan yang kenyal dengan isian kacang cincang manis. Merupakan oleh-oleh khas dari daerah Kotagede.</p>
+                </div>
+            </div>
+            <div class="card" onclick="openModal(this)">
+                <img src="img/BakpiaPathok.jpg" loading="lazy" alt="Bakpia Pathok">
+                <div class="card-content">
+                    <div class="desc">Bakpia Pathok</div>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="full-description" style="display: none;">
+                    <p>Bakpia Pathok adalah oleh-oleh yang paling identik dengan Yogyakarta. Kue ini berbentuk bulat pipih, terbuat dari adonan tepung yang diisi dengan berbagai macam isian, lalu dipanggang.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <p><b>Kategori Oleh-oleh Yogyakarta</b></p>
-    <div class="card-display" id="gallery">
-        <div class="card">
-            <p><a href="Menu-Info/yangko.html">
-            <img src="img/yangko.jpg" width="400" height="200" loading="lazy" alt="Yangko" onclick="openModal(this)"></a></p>
-            <div class="desc">Yangko</div>
-            <div class="harga_oleh-oleh">Kisaran Rp10.000 - Rp20.000 per pak</div>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="card">
-            <p><a href="Menu-Info/bakpia-pathok.html">
-            <img src="img/BakpiaPathok.jpg" width="400" height="200" loading="lazy" alt="Yangko" onclick="openModal(this)"></a></p>
-            <div class="desc">Bakpia Pathok</div>
-            <div class="harga_oleh-oleh">Kisaran Rp35.000 - Rp40.000 per pak</div>
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div id="modal" class="modal" onclick="closeModal()">
+    <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-content">
-        <img id="modalImage" src="" alt="Preview" />
+            <img id="modalImage" src="" alt="Preview" />
+            <h3 id="modalTitle"></h3>
+            <div id="modalDescription"></div>
         </div>
     </div>
 
     <button onclick="scrollToTop()" id="scrollTopBtn">↑</button>
 
+    <script src="menu.js"></script>
     <script>
-        function openModal(img) {
-            const modal = document.getElementById("modal");
-            const modalImg = document.getElementById("modalImage");
-            modal.style.display = "block";
-            modalImg.src = img.src;
-        }
-
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-
-        window.onscroll = function () {
-            document.getElementById("scrollTopBtn").style.display =
-            window.scrollY > 300 ? "block" : "none";
-        };
-
-        function filterCards() {
-            const query = document.getElementById("searchBox").value.toLowerCase();
-            const cards = document.querySelectorAll(".card-display .card");
-            cards.forEach((card) => {
-            const title = card.querySelector(".desc").textContent.toLowerCase();
-            card.style.display = title.includes(query) ? "block" : "none";
-            });
-        }
-      </script>
+    </script>
 </body>
 </html>
