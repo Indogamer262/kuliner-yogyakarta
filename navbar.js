@@ -25,11 +25,14 @@ function hideExpand() {
         exContainer.style.display = "none";
     }, 300);
     
-    setTimeout(function() {
-        if (document.documentElement.scrollTop < 200) {
-            topnav.style.background = "none";
-        }
-    }, 250);
+    // restrict to index.html for come back transparent
+    if (window.location.pathname == "/" || window.location.pathname == "/index.html") {
+        setTimeout(function() {
+            if (document.documentElement.scrollTop < 200) {
+                topnav.style.background = "none";
+            }
+        }, 250);
+    }
     state = false;
 }
 
@@ -68,4 +71,10 @@ if (window.location.pathname == "/" || window.location.pathname == "/index.html"
 }
 else {
     topnav.style.backgroundColor = "black";
+    topnav.style.position = "sticky";
+    topnav.style.top = "0";
+}
+
+function visitUrl(uri) {
+    window.location.href=uri;
 }

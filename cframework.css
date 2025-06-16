@@ -102,10 +102,6 @@ footer {
     word-wrap: break-word;
 }
 
-.logo {
-    cursor: pointer;
-}
-
 .quote {
     border-left: 8px solid purple;
     text-align: left;
