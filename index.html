@@ -31,70 +31,15 @@
 				</div>
 			</div>
 			<div class="nav-hamburger-expand lexend-regular">
-				<a href="news.html" class="expand-child">Berita</a>
-				<a href="menu.html" class="expand-child">Menu</a>
-				<a href="Gallery.html" class="expand-child">Galeri</a>
+				<div class="expand-content">
+					<a href="news.html" class="expand-child">Berita</a>
+					<a href="menu.html" class="expand-child">Menu</a>
+					<a href="Gallery.html" class="expand-child">Galeri</a>
+				</div>
+				<div class="expand-trigger" onclick="hideExpand()">
+				</div>
 			</div>
-			<script>
-				let state = false;
-				let topnav = document.getElementsByClassName("topnav")[0];
-
-				function showMenu() {
-					expand = document.getElementsByClassName("nav-hamburger-expand")[0];
-					exText = document.getElementsByClassName("expand-child");
-					exTextLen = exText.length
-
-					if(state) {
-						expand.style.height = "0";
-						for (let i = 0; i < exTextLen; i++) {
-							exText[i].style.display = "none";
-							exText[i].style.opacity = 0;
-						}
-						setTimeout(function() {
-							expand.style.display = "none";
-						}, 300);
-						
-						setTimeout(function() {
-							if (document.documentElement.scrollTop < 200) {
-								topnav.style.background = "none";
-							}
-						}, 250);
-
-						state = false;
-					}
-					else {
-						expand.style.display = "block";
-						setTimeout(function() {
-							expand.style.height = "130px";
-						}, 300);
-						setTimeout(function() {
-							for (let i = 0; i < exTextLen; i++) {
-								setTimeout(function() {
-									exText[i].style.display = "block";
-									exText[i].offsetWidth;
-									exText[i].style.opacity = 1;
-								}, 200+(i*50));
-							}
-						}, 200);
-						setTimeout(function() {
-							topnav.style.backgroundColor = "black";
-						}, 250);
-						
-						state = true;
-					}
-				}
-
-				// dynamic nav background
-				window.addEventListener("scroll", runOnScroll);
-				function runOnScroll() {
-					if (document.documentElement.scrollTop >= 200) {
-						topnav.style.backgroundColor = "black";
-					}
-					else {
-						topnav.style.background = "none";
-					}
-				}
-			</script>
+			<script src="navbar.js"></script>
 			<!-- Navbar End -->
 
 			<div class="bg" id="cover"></div>
@@ -109,13 +54,6 @@
 
 		<!-- Main content goes here -->
 		<div class="main">
-			<div class="lexend-regular">
-				<h1>Galeri</h1>
-				<div class="lexend-regular sec-flex">
-				
-				</div>
-			</div>
-
 			<div class="lexend-regular">
 				<div class="content">
 					<h1>Berita</h1>
@@ -132,6 +70,27 @@
 					<button onclick="visitUrl('news.html')" class="button-filled">Lihat berita lainnya</button>
 				</div>
 
+				<div class="lexend-regular">
+					<div class="lexend-regular black">
+						<div class="content">
+							<h1>Galeri</h1>
+							<div class="sec-flex">
+								<img src="img/sateRatu.jpg" height="200px"class="top-gallery">
+								<img src="img/houseRaminten.jpg" height="200px" class="top-gallery">
+								<img src="img/westLakeResto.jpg" height="200px" class="top-gallery">
+							</div>
+							<button class="button-outlined button-gallery" onclick="visitUrl('Gallery.html')">Lihat Lainnya</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="lexend-regular">
+					<div class="content">
+						<h1>Lokasi Daerah Istimewa Yogyakarta</h1>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d505882.87527827476!2d110.11758872075696!3d-7.872729775277044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787bd5b6bc5%3A0x6d1b92b2cac8b3f0!2sDaerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1749709292092!5m2!1sid!2sid" class="maps" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+
 				<div class="darker">
 					<div class="content">
 						<h1>Kenapa harus Yogyakarta</h1>
@@ -145,15 +104,20 @@
 					</div>
 				</div>
 
-				<div class="content">
-					<h1>Lokasi Daerah Istimewa Yogyakarta</h1>
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d505882.87527827476!2d110.11758872075696!3d-7.872729775277044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787bd5b6bc5%3A0x6d1b92b2cac8b3f0!2sDaerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1749709292092!5m2!1sid!2sid" class="maps" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-				</div>
-
 				<div class="lexend-regular">
 					<h1>Saran & Masukan</h1>
-					<div class="lexend-regular sec-flex">
-					
+					<div class="lexend-regular content form-content">
+						<form>
+							<label for="email"><b>E-mail:</b></label><br>
+							<input type="email" id="email" name="email" class="field" placeholder="example@mail.com" required>
+							<br>
+							<label for="email"><b>Nama:</b></label><br>
+							<input type="email" id="email" name="email" class="field" placeholder="Masukkan nama anda" required>
+							<br>
+							<label for="saran"><b>Saran & Masukan:</b></label><br>
+							<textarea id="saran" name="saran" class="field" placeholder="Sebaiknya..." rows="5"></textarea>
+							<button class="button-filled"><b>Kirim Saran</b></button>
+						</form>
 					</div>
 				</div>
 
@@ -165,12 +129,12 @@
 							<div style="text-align: left;">
 								<h3 style="margin: 0;">Orang 1</h3>
 								<p style="margin: 0; margin-top: 8px; text-align: left;">
-									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+									<span class="material-symbols-outlined icon-filled">starstarstarstarstar</span><span class="material-symbols-outlined"></span>
 								</p>
 							</div>
 							<img src="img/ayumi.png" width="60px" style="flex-shrink: 0;">
 						</div>
-						<p>"Kuliner di Yogyakarta tuh menurutku kuliner yang paling enak"</p>
+						<p>"Kuliner di Yogyakarta tuh menurutku kuliner yang paling tidak terlupakan"</p>
 					</div>
 
 					<div class="rate-card">
@@ -178,7 +142,7 @@
 							<div style="text-align: left;">
 								<h3 style="margin: 0;">Orang 2</h3>
 								<p style="margin: 0; margin-top: 8px; text-align: left;">
-									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+									<span class="material-symbols-outlined icon-filled">starstarstarstarstar</span><span class="material-symbols-outlined"></span>
 								</p>
 							</div>
 							<img src="img/grcx.jpg" width="60px" style="flex-shrink: 0;">
@@ -191,12 +155,38 @@
 							<div style="text-align: left;">
 								<h3 style="margin: 0;">Imelda</h3>
 								<p style="margin: 0; margin-top: 8px; text-align: left;">
-									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+									<span class="material-symbols-outlined icon-filled">starstarstarstarstar</span><span class="material-symbols-outlined"></span>
 								</p>
 							</div>
 							<img src="img/imelda.jpeg" width="60px" style="flex-shrink: 0;">
 						</div>
-						<p>"Makanan di Yogyakarta tuh ga bikin nyesel"</p>
+						<p>"Nyoba Makanan di Yogyakarta tuh ga bikin nyesel"</p>
+					</div>
+
+					<div class="rate-card">
+						<div style="display: flex; justify-content: space-between; align-items: center;">
+							<div style="text-align: left;">
+								<h3 style="margin: 0;">Xavier</h3>
+								<p style="margin: 0; margin-top: 8px; text-align: left;">
+									<span class="material-symbols-outlined icon-filled">star</span><span class="material-symbols-outlined">starstarstarstar</span>
+								</p>
+							</div>
+							<img src="img/xavier.jpeg" width="60px" style="flex-shrink: 0;">
+						</div>
+						<p>"Parah, rasa makanan Yogyakarta tuh aneh banget"</p>
+					</div>
+
+					<div class="rate-card">
+						<div style="display: flex; justify-content: space-between; align-items: center;">
+							<div style="text-align: left;">
+								<h3 style="margin: 0;">Tung tung</h3>
+								<p style="margin: 0; margin-top: 8px; text-align: left;">
+									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+								</p>
+							</div>
+							<img src="img/tung.webp" width="60px" style="flex-shrink: 0;">
+						</div>
+						<p>"Tungtungtungtungtungtungtungtungtungtungtungtungtungtung mantap!"</p>
 					</div>
 
 				</div>
