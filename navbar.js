@@ -54,13 +54,18 @@ function showExpand() {
     state = true;
 }
 
-// dynamic nav background
-window.addEventListener("scroll", runOnScroll);
-function runOnScroll() {
-    if (document.documentElement.scrollTop >= 200) {
-        topnav.style.backgroundColor = "black";
+// dynamic nav background, restrict to only works in index.html
+if (window.location.pathname == "/" || window.location.pathname == "/index.html") {
+    window.addEventListener("scroll", runOnScroll);
+    function runOnScroll() {
+        if (document.documentElement.scrollTop >= 200) {
+            topnav.style.backgroundColor = "black";
+        }
+        else {
+            topnav.style.background = "none";
+        }
     }
-    else {
-        topnav.style.background = "none";
-    }
+}
+else {
+    topnav.style.backgroundColor = "black";
 }
