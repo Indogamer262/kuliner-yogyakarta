@@ -8,8 +8,34 @@
     <link rel="stylesheet" href="gallery.css">
     <style>
     </style>
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
+    <!-- navbar section -->
+    <link rel="stylesheet" href="navbar.css">
+                <div class="topnav lexend-regular">
+                    <span class="logo" onclick="visitUrl('')"><b>Kuliner Yogyakarta</b></span>
+                    <div style="padding: 20px 0 20px 20px;" class="nav-desktop">
+                        <a href="news.html">Berita</a>
+                        <a href="menu.html">Menu</a>
+                        <a href="Gallery.html">Galeri</a>
+                    </div>
+                    <div class="nav-hamburger" onclick="showMenu()">
+                        <span class="material-symbols-outlined">menu</span>
+                    </div>
+                </div>
+                <div class="nav-hamburger-expand lexend-regular">
+                    <div class="expand-content">
+                        <a href="news.html" class="expand-child">Berita</a>
+                        <a href="menu.html" class="expand-child">Menu</a>
+                        <a href="Gallery.html" class="expand-child">Galeri</a>
+                    </div>
+                    <div class="expand-trigger" onclick="hideExpand()">
+                    </div>
+                </div>
+                <script src="navbar.js"></script>
+                <!-- Navbar End -->
+
     <div class="kuning">
         <h2 class="title-gradient">Restoran Terkenal di Yogyakarta</h2>
         <input type="text" id="searchBox" placeholder="Cari Restorant" onkeyup="filterCards()"/>
