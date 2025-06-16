@@ -13,15 +13,14 @@ body {
     padding: 0;
     background: #fff;
     color: #333;
-    line-height: 1.7;
     font-size: 16px;
 }
-a {
+.container a {
     color: #007bff;
     text-decoration: none;
     transition: color 0.2s ease;
 }
-a:hover {
+.container a:hover {
     color: #004aad;
     text-decoration: underline;
 }
@@ -29,7 +28,8 @@ a:hover {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px; 
+    padding: 0 15px;
+    line-height: 1.7;
 }
 .isi {
     display: flex;

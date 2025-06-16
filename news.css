@@ -1,11 +1,16 @@
 * {
     box-sizing: border-box;
 }
-body {
+
+html, body {
     font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+}
+
+.body-alt {
     margin: 16px auto;
     padding: 0 12px;
     background: #ffffff;
@@ -101,7 +106,7 @@ body {
 
 /* DESKTOP */
 @media only screen and (min-width: 601px) {
-    body {
+    .body-alt {
         max-width: 2000px;
         margin: 32px auto;
         padding: 0 16px;
