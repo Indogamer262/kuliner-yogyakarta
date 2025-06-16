@@ -44,12 +44,6 @@ header {
     transition: background-position 0.2s ease-in-out;
 }
 
-footer {
-    background-color: black;
-    color: white;
-    padding: 20px;
-}
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -241,6 +235,7 @@ button {
     }
 }
 
+/* dekstop */
 @media only screen and (min-width: 600px) {
     .button-gallery {
         width: 85%;
@@ -252,5 +247,8 @@ button {
     }
     .form-content {
         width: 50%;
+    }
+    footer {
+        flex-direction: row;
     }
 }

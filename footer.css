@@ -1,0 +1,19 @@
+footer {
+    background-color: black;
+    color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 22px;
+}
+footer > div > ul {
+    margin-top: 5px;;
+}
+
+/* dekstop */
+@media only screen and (min-width: 600px) {
+    footer {
+        flex-direction: row;
+    }
+}
