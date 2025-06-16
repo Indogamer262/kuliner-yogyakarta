@@ -148,6 +148,9 @@ img.main-image {
 }
 /* Mobile */
 @media only screen and (max-width: 600px) {
+    .more {
+        visibility: hidden;
+    }
     .news-card {
         display: flex;
         flex-direction: column;
