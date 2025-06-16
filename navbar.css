@@ -1,0 +1,130 @@
+/* Navbar section */
+.topnav {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    background: none;
+    transition: background-color 0.2s;
+    /* background-color: #333;*/
+    z-index: 99;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: background-color 0.2s;
+}
+.topnav a:hover {
+    background-color: rgba(57, 57, 57, 0.65);
+    color: white;
+    transition: background-color 0.2s;
+}
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+.topnav > span {
+    color: white;
+    padding: 20px;
+    float: left;
+    font-size: 18px;
+}
+
+.nav-desktop {
+    display: none;
+}
+.nav-hamburger {
+    display: block;
+    color: white;
+    align-items: center;
+    margin-right: 30px;
+    border: 1px solid white;
+    padding: 5px 5px 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav-hamburger:hover {
+    background-color: rgba(57, 57, 57, 0.65);
+    transition: background-color 0.2s;
+}
+
+.nav-hamburger-expand {
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    display: none;
+    height: 95%;
+    z-index: 99;
+}
+.expand-content {
+    height: 0;
+    transition: height 0.3s;
+    background-color: black;
+}
+.expand-trigger {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.expand-child {
+    display: block;
+    display: none;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    transition: background-color 0.2s, opacity 100ms;
+    opacity: 0;
+}
+.expand-child:hover {
+    display: block;
+    background-color: rgba(57, 57, 57, 0.65);
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+.icon-filled {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+@media only screen and (min-width:600px) {
+    .nav-desktop {
+        display: block;
+    }
+    .nav-hamburger {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .topnav {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        flex-wrap: nowrap;
+        /* background-color: #333;*/
+    }
+}

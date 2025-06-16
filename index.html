@@ -3,155 +3,48 @@
 	<head>
 		<title>Yogyakarta</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu,star" />
 		
-		<link rel="stylesheet" href="mystyle.css">
+		<link rel="stylesheet" href="cframework.css">
+		<link rel="stylesheet" href="navbar.css">
 
 		<style>
-			html, body {
-				margin: 0;
-				height: 100%;
-			}
-			* {
-				box-sizing: border-box;
-			}
-
-			.material-symbols-outlined {
-				font-variation-settings:
-				'FILL' 0,
-				'wght' 400,
-				'GRAD' 0,
-				'opsz' 24
-			}
-			.icon-filled {
-				font-variation-settings:
-				'FILL' 1,
-				'wght' 400,
-				'GRAD' 0,
-				'opsz' 24
-			}
 			
-			.lexend-regular {
-				font-family: "Lexend", sans-serif;
-				font-optical-sizing: auto;
-				font-weight: 400;
-				font-style: normal;
-			}
-
-			header {
-				height: 100%;
-				display: flex;
-				flex-direction:column;
-			}
-			.bg {
-				height: 75%;
-				background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("img/Nasi-Goreng-Fried-Rice.jpg");
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
-				margin-bottom: 0;
-			}
-
-			footer {
-				background-color: black;
-				color: white;
-				padding: 20px;
-			}
-
-			.card {
-				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-				transition: 0.3s;
-  				width: 40%;
-			}
-
-			.card:hover {
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-			}
-
-			.container {
-				padding: 2px 16px;
-			}
-
-			.topnav {
-				overflow: hidden;
-				display: flex;
-				justify-content: space-between;
-  				/* background-color: #333;*/
-			}
-
-			.topnav a {
-				color: #f2f2f2;
-				text-align: center;
-				padding: 20px;
-				text-decoration: none;
-				font-size: 17px;
-			}
-			.topnav a:hover {
-				background-color: #ddd;
-				color: black;
-			}
-			.topnav a.active {
-				background-color: #04AA6D;
-				color: white;
-			}
-			.topnav > span {
-				color: white;
-				padding: 20px;
-				float: left;
-				font-size: 18px;
-			}
-
-			.main {
-				text-align: center;
-			}
-			.sec-spotlight {
-				background-color: #ffc956;
-				padding: 20px;
-			}
-			.content {
-				width: 80%;
-				margin: auto;
-			}
-			.content > h1 {
-				margin-top: 10px;
-			}
-
-			.sec-flex {
-				display: flex;
-			}
-
-			.rate-card {
-				padding: 30px;
-				box-shadow: 0 0 4px gray;
-				width: 400px;
-				display: inline-block;
-				margin: 18px;
-			}
-</style>
-
 		</style>
 	</head>
 	<body>
 		<!-- The header -->
 		<header>
-			<div class="bg">
-				<nav>
-					<div class="topnav lexend-regular">
-						<span><b>Kuliner Yogyakarta</b></span>
-						<div style="padding: 20px 0 20px 20px;">
-							<a href="#Berita_terkini">News</a>
-							<a href="#Makanan_Yogyakarta">Menu</a>
-							<a href="Gallery.html">Gallery</a>
-						</div>
-					</div>
-				</nav>
+			<!-- navbar section -->
+			<div class="topnav lexend-regular">
+				<span class="logo" onclick="visitUrl('.')"><b>Kuliner Yogyakarta</b></span>
+				<div style="padding: 20px 0 20px 20px;" class="nav-desktop">
+					<a href="news.html">Berita</a>
+					<a href="menu.html">Menu</a>
+					<a href="Gallery.html">Galeri</a>
+				</div>
+				<div class="nav-hamburger" onclick="showMenu()">
+					<span class="material-symbols-outlined">menu</span>
+				</div>
 			</div>
+			<div class="nav-hamburger-expand lexend-regular">
+				<div class="expand-content">
+					<a href="news.html" class="expand-child">Berita</a>
+					<a href="menu.html" class="expand-child">Menu</a>
+					<a href="Gallery.html" class="expand-child">Galeri</a>
+				</div>
+				<div class="expand-trigger" onclick="hideExpand()">
+				</div>
+			</div>
+			<script src="navbar.js"></script>
+			<!-- Navbar End -->
 
-			<div class="lexend-regular sec-spotlight">
+			<div class="bg" id="cover"></div>
+
+			<div class="lexend-regular sec-spotlight" style="display: flex;">
 				<div class="content">
 					<h1>Yogyakarta</h1>
 					<p>Yogyakarta adalah kota budaya dan pariwisata yang juga dikenal dengan kekayaan kulinernya. Mulai dari Gudeg, bakpia, hingga sate klathak, Yogya punya segalanya!</p>
@@ -161,14 +54,73 @@
 
 		<!-- Main content goes here -->
 		<div class="main">
-			<div class="lexend-regular sec-flex">
-				<div class="">
-					<h2>Sample text</h2>
-					<p>Info</p>
-				</div>
-			</div>
-
 			<div class="lexend-regular">
+				<div class="content">
+					<h1>Berita</h1>
+					<p class="subhead">Terkait Kuliner di Yogyakarta</p>
+					<div class="news-card" onclick="visitUrl('news/news1.html')">
+						<img src="img/ramenbabi.webp" width="400px;">
+						<div class="text">
+							<div>
+								<h2>10 Kuliner Nonhalal di Jogja</h2>
+								Jogja memiliki beberapa kuliner nonhalal yang digandrungi banyak wisatawan non-muslim. Beberapa di antaranya ada burger hingga ramen babi yang bisa memanjakan lidah.
+							</div>
+						</div>
+					</div>
+					<button onclick="visitUrl('news.html')" class="button-filled">Lihat berita lainnya</button>
+				</div>
+
+				<div class="lexend-regular">
+					<div class="lexend-regular black">
+						<div class="content">
+							<h1>Galeri</h1>
+							<div class="sec-flex">
+								<img src="img/SateRatu.jpg" height="200px"class="top-gallery">
+								<img src="img/HouseRaminten.jpg" height="200px" class="top-gallery">
+								<img src="img/WestlakeResto.jpg" height="200px" class="top-gallery">
+							</div>
+							<button class="button-outlined button-gallery" onclick="visitUrl('Gallery.html')">Lihat Lainnya</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="lexend-regular">
+					<div class="content">
+						<h1>Lokasi Daerah Istimewa Yogyakarta</h1>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d505882.87527827476!2d110.11758872075696!3d-7.872729775277044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5787bd5b6bc5%3A0x6d1b92b2cac8b3f0!2sDaerah%20Istimewa%20Yogyakarta!5e0!3m2!1sid!2sid!4v1749709292092!5m2!1sid!2sid" class="maps" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+
+				<div class="darker">
+					<div class="content">
+						<h1>Kenapa harus Yogyakarta</h1>
+						<p class="why-card">Kulinernya Khas</p>
+						<p class="why-card">Kuliner Legendaris & Otentik</p>
+						<p class="why-card">Merupakan Kota Budaya</p>
+						<p class="why-card">Daerah yang Istimewa</p>
+						<p class="why-card">Surga Jajanan Khas Tradisional</p>
+						<p class="why-card">Harga Ramah di Kantong</p>
+						<p class="why-card">Pengalaman Tak Terlupakan</p>
+					</div>
+				</div>
+
+				<div class="lexend-regular">
+					<h1>Saran & Masukan</h1>
+					<div class="lexend-regular content form-content">
+						<form>
+							<label for="email"><b>E-mail:</b></label><br>
+							<input type="email" id="email" name="email" class="field" placeholder="example@mail.com" required>
+							<br>
+							<label for="email"><b>Nama:</b></label><br>
+							<input type="email" id="email" name="email" class="field" placeholder="Masukkan nama anda" required>
+							<br>
+							<label for="saran"><b>Saran & Masukan:</b></label><br>
+							<textarea id="saran" name="saran" class="field" placeholder="Sebaiknya..." rows="5"></textarea>
+							<button class="button-filled"><b>Kirim Saran</b></button>
+						</form>
+					</div>
+				</div>
+
 				<div class="content">
 					<h1>Apa Kata Orang?</h1>
 
@@ -177,12 +129,12 @@
 							<div style="text-align: left;">
 								<h3 style="margin: 0;">Orang 1</h3>
 								<p style="margin: 0; margin-top: 8px; text-align: left;">
-									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+									<span class="material-symbols-outlined icon-filled">starstarstarstarstar</span><span class="material-symbols-outlined"></span>
 								</p>
 							</div>
 							<img src="img/ayumi.png" width="60px" style="flex-shrink: 0;">
 						</div>
-						<p>"Makanan yogyakarta tuh emang favorit banget, aku suka lah pokoknya"</p>
+						<p>"Kuliner di Yogyakarta tuh menurutku kuliner yang paling tidak terlupakan"</p>
 					</div>
 
 					<div class="rate-card">
@@ -190,7 +142,7 @@
 							<div style="text-align: left;">
 								<h3 style="margin: 0;">Orang 2</h3>
 								<p style="margin: 0; margin-top: 8px; text-align: left;">
-									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+									<span class="material-symbols-outlined icon-filled">starstarstarstarstar</span><span class="material-symbols-outlined"></span>
 								</p>
 							</div>
 							<img src="img/grcx.jpg" width="60px" style="flex-shrink: 0;">
@@ -203,37 +155,76 @@
 							<div style="text-align: left;">
 								<h3 style="margin: 0;">Imelda</h3>
 								<p style="margin: 0; margin-top: 8px; text-align: left;">
-									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+									<span class="material-symbols-outlined icon-filled">starstarstarstarstar</span><span class="material-symbols-outlined"></span>
 								</p>
 							</div>
 							<img src="img/imelda.jpeg" width="60px" style="flex-shrink: 0;">
 						</div>
-						<p>"Puas banget lah pokoknya"</p>
+						<p>"Nyoba Makanan di Yogyakarta tuh ga bikin nyesel"</p>
 					</div>
 
+					<div class="rate-card">
+						<div style="display: flex; justify-content: space-between; align-items: center;">
+							<div style="text-align: left;">
+								<h3 style="margin: 0;">Xavier</h3>
+								<p style="margin: 0; margin-top: 8px; text-align: left;">
+									<span class="material-symbols-outlined icon-filled">star</span><span class="material-symbols-outlined">starstarstarstar</span>
+								</p>
+							</div>
+							<img src="img/xavier.jpeg" width="60px" style="flex-shrink: 0;">
+						</div>
+						<p>"Parah, rasa makanan Yogyakarta tuh aneh banget"</p>
+					</div>
+
+					<div class="rate-card">
+						<div style="display: flex; justify-content: space-between; align-items: center;">
+							<div style="text-align: left;">
+								<h3 style="margin: 0;">Tung tung</h3>
+								<p style="margin: 0; margin-top: 8px; text-align: left;">
+									<span class="material-symbols-outlined icon-filled">starstarstarstar</span><span class="material-symbols-outlined">star</span>
+								</p>
+							</div>
+							<img src="img/tung.webp" width="60px" style="flex-shrink: 0;">
+						</div>
+						<p>"Tungtungtungtungtungtungtungtungtungtungtungtungtungtung mantap!"</p>
+					</div>
 
 				</div>
 			</div>
 		</div>
 
 		<!-- // Buat si kulinernya // -->
+		 <!--
 		<div class="card">
  			<img src="" alt="Avatar" style="width:100%">
   			<div class="container" onclick="window.location.href='https://midnight.christianah.my.id'">
     			<h4><b>Sate Klathak Pak Bari</b></h4> 
     			<p>Ada di film: Ada Apa Dengan Cinta 2 (AADC 2)</p> 
 			</div>
-		</div>
+		</div> -->
 
 		
 		<footer>
 			<div class="lexend-regular">
 				<b>Contact Us</b>
 				<ul>
-					<li>Email: 2472008@maranatha.ac.id</li>
-					<li>Phone: +62 858-6413-7740</li>
+					<li>Email: 2472018@maranatha.ac.id</li>
+					<li>Phone: +62 123-1234-1234</li>
 				</ul>
 			</div>
 		</footer>
+
+		<script src="cscript.js"></script>
+		<script>
+			let shows = ["img/Nasi-Goreng-Fried-Rice.jpg", "img/angkringan.jpg", "img/sate.jpg"];
+			let nowShow = 0;
+			setInterval(function() {
+				backgroundChange("cover", shows[nowShow]);
+				nowShow++;
+				if(nowShow >= shows.length) {
+					nowShow = 0;
+				}
+			}, 3500);
+		</script>
 	</body>
 </html>
