@@ -88,6 +88,8 @@ footer {
 
 .sec-flex {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .rate-card {
@@ -97,6 +99,7 @@ footer {
     display: inline-block;
     margin: 18px;
     border-radius: 7px;
+    word-wrap: break-word;
 }
 
 .logo {
@@ -117,6 +120,7 @@ footer {
 .news-card {
     display: flex;
     box-shadow: 0 0 4px gray;
+    cursor: pointer;
 }
 .news-card > .text {
     padding: 15px;
@@ -127,8 +131,9 @@ footer {
     justify-content: space-between;
 }
 .news-card > img {
-    width: 50%;
+    width: 45%;
     object-fit: cover;
+    flex-shrink: 3
 }
 .news-card > .text > button {
     bottom: 5px;
@@ -170,6 +175,58 @@ button {
     cursor: pointer;
 }
 
+.button-gallery {
+    width: 90%;
+    color: white;
+    border-color: white;
+}
+.button-gallery:hover {
+    background-color: #2a2a2a;
+}
+
+.maps {
+    width: 80%;
+}
+
+.darker {
+    background-color: #f0f0f0;
+    padding: 12px;
+    margin-bottom: 40px;
+}
+.why-card {
+    padding: 12px;
+    display: inline-block;
+    margin: 10px;
+    background-color: white;
+    border: 2px solid #ffc956;
+    border-radius: 6px;
+}
+
+.black {
+    background-color: black;
+    padding: 24px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.top-gallery {
+    object-fit: cover;
+    margin: 12px;
+    width: 71%;
+}
+
+.form-content {
+    text-align: left;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px lightgray;
+}
+.field {
+    width: 100%;
+    padding: 12px;
+    display: block;
+}
+
 @media only screen and (max-width: 600px) {
     .news-card {
         display: flex;
@@ -182,5 +239,22 @@ button {
     }
     .rate-card {
         width: 90%;
+    }
+    .maps {
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .button-gallery {
+        width: 85%;
+    }
+    .top-gallery {
+        object-fit: cover;
+        margin: 12px;
+        max-width: 300px;
+    }
+    .form-content {
+        width: 50%;
     }
 }

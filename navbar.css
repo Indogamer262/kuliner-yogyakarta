@@ -55,23 +55,34 @@
 
 .nav-hamburger-expand {
     position: fixed;
-    background-color: black;
     top: 60px;
     width: 100%;
     display: none;
+    height: 95%;
+}
+.expand-content {
+    height: 0;
     transition: height 0.3s;
+    background-color: black;
+}
+.expand-trigger {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
 }
 
-.nav-hamburger-expand > a {
+.expand-child {
     display: block;
+    display: none;
     text-align: center;
     padding: 10px;
     text-decoration: none;
     font-size: 17px;
-    transition: background-color 0.2s;
     color: white;
+    transition: background-color 0.2s, opacity 100ms;
+    opacity: 0;
 }
-.nav-hamburger-expand > a:hover {
+.expand-child:hover {
     display: block;
     background-color: rgba(57, 57, 57, 0.65);
     color: #ffffff;
