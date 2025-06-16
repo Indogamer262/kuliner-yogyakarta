@@ -121,10 +121,14 @@ header {
     justify-content: space-between;
 }
 .news-card > img {
-    width: 45%;
+    flex-basis: 45%;
     object-fit: cover;
     flex-shrink: 3
 }
+.news-card > .text {
+    flex-basis: 55;
+}
+
 .news-card > .text > button {
     bottom: 5px;
     right: 0;
@@ -251,4 +255,9 @@ button {
     footer {
         flex-direction: row;
     }
+}
+
+/* firefox patch */
+@supports (-moz-appearance:none) {
+
 }
