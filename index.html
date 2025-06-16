@@ -31,10 +31,71 @@
 				</div>
 			</div>
 			<div class="nav-hamburger-expand lexend-regular">
-				<a href="news.html">Berita</a>
-				<a href="menu.html">Menu</a>
-				<a href="Gallery.html">Galeri</a>
+				<a href="news.html" class="expand-child">Berita</a>
+				<a href="menu.html" class="expand-child">Menu</a>
+				<a href="Gallery.html" class="expand-child">Galeri</a>
 			</div>
+			<script>
+				let state = false;
+				let topnav = document.getElementsByClassName("topnav")[0];
+
+				function showMenu() {
+					expand = document.getElementsByClassName("nav-hamburger-expand")[0];
+					exText = document.getElementsByClassName("expand-child");
+					exTextLen = exText.length
+
+					if(state) {
+						expand.style.height = "0";
+						for (let i = 0; i < exTextLen; i++) {
+							exText[i].style.display = "none";
+							exText[i].style.opacity = 0;
+						}
+						setTimeout(function() {
+							expand.style.display = "none";
+						}, 300);
+						
+						setTimeout(function() {
+							if (document.documentElement.scrollTop < 200) {
+								topnav.style.background = "none";
+							}
+						}, 250);
+
+						state = false;
+					}
+					else {
+						expand.style.display = "block";
+						setTimeout(function() {
+							expand.style.height = "130px";
+						}, 300);
+						setTimeout(function() {
+							for (let i = 0; i < exTextLen; i++) {
+								setTimeout(function() {
+									exText[i].style.display = "block";
+									exText[i].offsetWidth;
+									exText[i].style.opacity = 1;
+								}, 200+(i*50));
+							}
+						}, 200);
+						setTimeout(function() {
+							topnav.style.backgroundColor = "black";
+						}, 250);
+						
+						state = true;
+					}
+				}
+
+				// dynamic nav background
+				window.addEventListener("scroll", runOnScroll);
+				function runOnScroll() {
+					if (document.documentElement.scrollTop >= 200) {
+						topnav.style.backgroundColor = "black";
+					}
+					else {
+						topnav.style.background = "none";
+					}
+				}
+			</script>
+			<!-- Navbar End -->
 
 			<div class="bg" id="cover"></div>
 
@@ -59,22 +120,29 @@
 				<div class="content">
 					<h1>Berita</h1>
 					<p class="subhead">Terkait Kuliner di Yogyakarta</p>
-					<div class="news-card">
+					<div class="news-card" onclick="visitUrl('news/news1.html')">
 						<img src="img/ramenbabi.webp" width="400px;">
 						<div class="text">
 							<div>
 								<h2>10 Kuliner Nonhalal di Jogja</h2>
 								Jogja memiliki beberapa kuliner nonhalal yang digandrungi banyak wisatawan non-muslim. Beberapa di antaranya ada burger hingga ramen babi yang bisa memanjakan lidah.
 							</div>
-							<button onclick="visitUrl('https://www.detik.com/jogja/kuliner/d-7939354/10-kuliner-nonhalal-di-jogja-ada-burger-ramen-babi')" class="button-filled">Baca Selengkapnya</button>
 						</div>
 					</div>
 					<button onclick="visitUrl('news.html')" class="button-filled">Lihat berita lainnya</button>
 				</div>
 
-				<div class="content">
-					<h1>Kenapa harus Yogyakarta</h1>
-					<p class="quote">Yogyakarta adalah kota budaya dengan kuliner yang khas, menjadikannya sebagai kota yang menarik untuk dikunjungi.</p>
+				<div class="darker">
+					<div class="content">
+						<h1>Kenapa harus Yogyakarta</h1>
+						<p class="why-card">Kulinernya Khas</p>
+						<p class="why-card">Kuliner Legendaris & Otentik</p>
+						<p class="why-card">Merupakan Kota Budaya</p>
+						<p class="why-card">Daerah yang Istimewa</p>
+						<p class="why-card">Surga Jajanan Khas Tradisional</p>
+						<p class="why-card">Harga Ramah di Kantong</p>
+						<p class="why-card">Pengalaman Tak Terlupakan</p>
+					</div>
 				</div>
 
 				<div class="content">
@@ -150,8 +218,8 @@
 			<div class="lexend-regular">
 				<b>Contact Us</b>
 				<ul>
-					<li>Email: 2472008@maranatha.ac.id</li>
-					<li>Phone: +62 858-6413-7740</li>
+					<li>Email: 2472018@maranatha.ac.id</li>
+					<li>Phone: +62 123-1234-1234</li>
 				</ul>
 			</div>
 		</footer>
@@ -167,39 +235,6 @@
 					nowShow = 0;
 				}
 			}, 3500);
-
-			// dynamic nav background
-			window.addEventListener("scroll", runOnScroll);
-			function runOnScroll() {
-				let topnav = document.getElementsByClassName("topnav")[0];
-				if (document.documentElement.scrollTop >= 200) {
-					topnav.style.backgroundColor = "black";
-				}
-				else {
-					topnav.style.background = "none";
-				}
-			}
-
-			let state = false;
-			function showMenu() {
-				expand = document.getElementsByClassName("nav-hamburger-expand")[0];
-
-				if(state) {
-					expand.style.height = "0px";
-					setTimeout(function() {
-						expand.style.display = "none";
-					}, 300);
-					state = false;
-				}
-				else {
-					expand.style.display = "block";
-					setTimeout(function() {
-						expand.style.height = "130px";
-					}, 300);
-					
-					state = true;
-				}
-			}
 		</script>
 	</body>
 </html>

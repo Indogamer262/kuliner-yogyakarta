@@ -117,6 +117,7 @@ footer {
 .news-card {
     display: flex;
     box-shadow: 0 0 4px gray;
+    cursor: pointer;
 }
 .news-card > .text {
     padding: 15px;
@@ -127,8 +128,9 @@ footer {
     justify-content: space-between;
 }
 .news-card > img {
-    width: 50%;
+    width: 45%;
     object-fit: cover;
+    flex-shrink: 3
 }
 .news-card > .text > button {
     bottom: 5px;
@@ -172,6 +174,19 @@ button {
 
 .maps {
     width: 80%;
+}
+
+.darker {
+    background-color: #f0f0f0;
+    padding: 12px;
+}
+.why-card {
+    padding: 12px;
+    display: inline-block;
+    margin: 10px;
+    background-color: white;
+    border: 2px solid #ffc956;
+    border-radius: 6px;
 }
 
 @media only screen and (max-width: 600px) {
