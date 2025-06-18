@@ -221,11 +221,13 @@ button {
     display: block;
 }
 
-@media only screen and (max-width: 600px) {
+
+/* --- BLOK MEDIA QUERY LAMA DIGANTI DENGAN YANG BARU INI --- */
+@media only screen and (max-width: 768px) {
     .news-card {
         display: flex;
         flex-direction: column;
-        box-shadow: 0 0 4px gray
+        box-shadow: 0 0 4px gray;
     }
     .news-card > img {
         width: 100%;
@@ -237,9 +239,27 @@ button {
     .maps {
         width: 95%;
     }
+
+    /* Penyesuaian untuk gallery di mobile */
+    .top-gallery {
+        width: 90%;
+        max-width: none;
+    }
+    
+    /* Penyesuaian untuk form di mobile */
+    .form-content {
+        width: 90%;
+    }
+
+    /* Memastikan footer juga tersusun rapi di mobile */
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
-/* dekstop */
+
+/* Tampilan dekstop */
 @media only screen and (min-width: 600px) {
     .button-gallery {
         width: 85%;
