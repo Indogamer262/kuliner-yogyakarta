@@ -126,7 +126,7 @@ header {
     flex-shrink: 3
 }
 .news-card > .text {
-    flex-basis: 55;
+    flex-basis: 55%;
 }
 
 .news-card > .text > button {
@@ -279,5 +279,5 @@ button {
 
 /* firefox patch */
 @supports (-moz-appearance:none) {
-
+    
 }
